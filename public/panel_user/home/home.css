@@ -1,0 +1,293 @@
+.container_panel_user {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    height: 500px;
+    margin: 30px;
+}
+
+.blur_black {
+    position: relative;
+    transition: all 0.3s;
+}
+
+.blur_black::before {
+    content: '';
+    transition: all 0.3s;
+    position: absolute;
+    /* filter: blur(5px); */
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0 0 0 / 0.4);
+    z-index: 998;
+}
+
+.dropdown_memu_profile_user {
+    display: none;
+    box-shadow: 1px 1px 20px 5px #66666663;
+    z-index: 999;
+    padding: 20px 20px 10px 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    height: auto;
+    width: 219px;
+    position: absolute;
+    left: 35px;
+    top: 90px;
+}
+
+#profile_user {
+    z-index: 999;
+    position: relative;
+}
+
+#exit_panel {
+    padding-top: 10px !important;
+    margin: 3px;
+}
+
+.dropdown_header {
+    display: flex;
+    padding-bottom: 9px;
+    border-bottom: 1px solid rgba(146, 146, 146, 0.671);
+}
+
+.dropdown_menu_right {}
+
+.list_menu_dropdowm li {
+    border-radius: 5px;
+    padding: 8px;
+    margin: 7px;
+    transition: all 0.3s;
+}
+
+.list_menu_dropdowm li:hover {
+    background-color: rgba(223, 223, 223, 0.462);
+}
+
+.list_menu_dropdowm li a span {
+    padding-right: 9px;
+    color: #373737;
+    font-family: dana;
+}
+
+.list_menu_dropdowm li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#profile_dropdown_user {
+    cursor: pointer;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.dropdown_menu_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 20px;
+}
+
+.name_user_account {
+    color: #373737;
+    font-family: dana;
+}
+
+.count_wallet_user {
+    color: #4bc9ff;
+    font-family: dana;
+    font-size: 13px;
+}
+
+.dropdown_body {}
+
+.list_menu_dropdowm {}
+
+.nav_bar_right {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0px;
+}
+
+.img_cover_panel {
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+    align-items: center;
+}
+
+.img_cover_panel_logo {
+    width: 90px;
+}
+
+.title_logo_cover_panel {
+    font-family: dana;
+    font-size: 35px;
+    padding-right: 10px;
+    font-weight: 900;
+}
+
+.list_right_menu_panel {
+    margin: 30px 0px 0px 0px;
+    padding: 5px;
+}
+
+.li_menu_right_panel,
+a {
+    cursor: pointer;
+    font-family: 'dana';
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 9px;
+    width: 100%;
+}
+
+.li_menu_right_panel a {
+    color: #000;
+    text-decoration: none;
+}
+
+.li_menu_right_panel img {
+    padding-left: 9px;
+}
+
+.body_bar_left {
+    background-color: #F3F4F6;
+    border-radius: 1rem;
+    height: 100%;
+    width: 77%;
+}
+
+.header_body_bar_left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 19px 10px;
+}
+
+.header_body_bar_left_left {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    order: 1;
+}
+
+.circle_header_left_body img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+}
+
+.circle_header_left_body {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 47px;
+    height: 47px;
+    cursor: pointer;
+}
+
+.circle_header_left_body i {
+    display: block;
+    margin: 11px;
+    font-size: 23px;
+    color: #4f4f4f;
+}
+
+.header_body_bar_left_right {
+    width: 80%;
+}
+
+.title_body_left_panel {
+    font-family: 'dana';
+    font-size: 20px;
+    padding-right: 40px;
+}
+
+
+.featears_header_body {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 30px;
+}
+
+.feather_box {
+    width: 150px;
+    padding: 11px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-family: 'dana';
+    cursor: pointer;
+}
+
+.feather_box img {
+    width: 28px;
+    background-color: #ffffff75;
+    padding: 7px;
+    border-radius: 11px;
+}
+
+.txt_featears_box {
+    padding-right: 11px;
+    font-size: 13px;
+}
+
+.txt_featers_box_title {
+    padding: 3px 0px;
+}
+
+.des_featers_box_title {
+    padding: 3px 0px;
+}
+
+.bx {
+    font-size: 25px;
+    padding-left: 9px;
+}
+
+.swal2-popup {
+    font-family: dana !important;
+}
+
+.swal2-actions button {
+    font-family: dana !important;
+}
+
+.btn_back_site {
+    text-decoration: none;
+    color: #000;
+    margin-left: 19px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    border: none;
+    font-family: 'dana';
+    font-size: 16px;
+    padding: 10px 10px;
+    width: 175px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px 4px #e4e4e4;
+}
+
+@font-face {
+    font-family: 'dana';
+    src: url('../../assets/fonts/dana-medium.woff') format('woff');
+}
+
+;

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../public/assets/css/colors.css">
+    <link rel="stylesheet" href="../public/assets/css/reset.css">
+    <link rel="icon" href="../Images/cropped-sabz-fav-32x32.png">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <title>سبز لرن</title>
+</head>
+
+<body dir="rtl">
+    <header>
+        <nav>
+            <span class="btn_toggle_hamberger"><i class='bx bx-menu'></i></span>
+            <img src="../Images/logo.webp" alt="Sabzlean" id="logo_header">
+            <ul class="menu_header_main">
+                <li class="li_menu_header_main">فرانت اند
+                    <i class='bx bxs-chevron-down'></i>
+                    <ul class="menu_megan_menu_main">
+                        <li class="li_menu_mega_main" data-symbol="HTML" onclick="getviewCourse(this)">آموزش HTML</li>
+                        <li class="li_menu_mega_main" data-symbol="CSS" onclick="getviewCourse(this)">آموزش CSS</li>
+                        <li class="li_menu_mega_main" data-symbol="flexBox" onclick="getviewCourse(this)">آموزش FlexBox
+                        </li>
+                        <li class="li_menu_mega_main">آموزش Tailwind CSS</li>
+                        <li class="li_menu_mega_main" data-symbol="bootstrap" onclick="getviewCourse(this)">آموزش بوت
+                            استرپ</li>
+                        <li class="li_menu_mega_main" data-symbol="JS" onclick="getviewCourse(this)">آموزش جاوااسکریپت
+                        </li>
+                    </ul>
+                </li>
+                <li class="li_menu_header_main">امنیت
+                    <i class='bx bxs-chevron-down'></i>
+                    <ul class="menu_megan_menu_main">
+                        <li class="li_menu_mega_main">شبکه با گرایش امنیت</li>
+                        <li class="li_menu_mega_main">لینوکس با گرایش امنیت</li>
+                        <li class="li_menu_mega_main">آموزش هکر قانونمند - CEH V11</li>
+                        <li class="li_menu_mega_main">آموزش پایتون سیاه</li>
+                        <li class="li_menu_mega_main">آموزش جاوااسکریپت سیاه</li>
+                    </ul>
+                </li>
+                <li class="li_menu_header_main">پایتون
+                    <i class='bx bxs-chevron-down'></i>
+                    <ul class="menu_megan_menu_main">
+                        <li class="li_menu_mega_main">دوره آموزش پایتون</li>
+                        <li class="li_menu_mega_main">پروژه های کاربردی با پایتون</li>
+                        <li class="li_menu_mega_main">ترفند های کاربردی با پایتون</li>
+                        <li class="li_menu_mega_main">مصور سازی داده با پایتون</li>
+                    </ul>
+                </li>
+                <li class="li_menu_header_main" data-symbol="softSkill" onclick="getviewCourse(this)">مهارت های نرم</li>
+                <li class="li_menu_header_main" style="padding-top: 10px !important;"><a href="./blogs/index.html"
+                        style="text-decoration: none; color: #636363">مقالات</a></li>
+            </ul>
+        </nav>
+        <div class="btns_header">
+            <div class="desired_contaionmer_searchs">
+                <div class="container_search_nav">
+                    <input type="text" class="input_search_nav" placeholder="جستجو">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+                        width="24" height="24">
+                        <defs>
+                            <symbol id="magnifying-glass" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5px" stroke="#000000">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                                    stroke="#000000" fill="none" stroke-width="1.5px"></path>
+                            </symbol>
+                        </defs>
+                        <g>
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                                stroke="rgb(112, 112, 112)" fill="none" stroke-width="2.5px"></path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="container_result_search">
+                    <!-- <div class="course_search" onclick="getviewCourse(this)" data-symbol="bootstrap">
+                        <img src="http://localhost/sabzlearn\backend\uploads\covers\unnamed.jpg" class="
+                            cover_course_last_one">
+                        <div class="info_course_last">
+                            <h3 class="name_course">آموزش بوت استرپ 5 مقدماتی تا پیشرفته (2023)</h3>
+                            <p class="description_course">آموزش bootstrap 5 خوش اومدین به آموزش بوت استرپ 5 سبزلرن! حتما
+                                تا الان html و css رو ...</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="circle_Profile_user">
+                <img src="" id="profile_header_user">
+            </div>
+            <button class="btn_header_main">ورود | ثبت نام</button>
+            <div class="dropdown_memu_profile_user">
+                <div class="dropdown_header">
+                    <div class="dropdown_menu_right"><img src="" id="profile_dropdown_user"></div>
+                    <div class="dropdown_menu_left">
+                        <span class="name_user_account"></span>
+                        <span class="count_wallet_user"></span>
+                    </div>
+                </div>
+                <div class="dropdown_body">
+                    <ul class="list_menu_dropdowm">
+                        <li id="panel_btn_li_user_header"><a href="#"><img
+                                    src="../Images/panel_user/svgexport-4.svg"><span>پیشخوان</span></a></li>
+                        <li id="panel_my_course_btn_li_user_header"><a href="#"><img
+                                    src="../Images/panel_user/svgexport-5.svg"><span>دوره های من</span></a></li>
+                        <li id="tcket_support"><a href="#"><img src="../Images/panel_user/svgexport-6.svg"><span>تیکت
+                                    های
+                                    پشتیبانی</span></a></li>
+                        <li id="exit_panel"><a href="#"><img
+                                    src="../Images/panel_user/svgexport-7.svg"><span>خروج</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="menu_hamberger_right">
+        <i class='bx bx-x'></i>
+        <div class="container_logo_txts">
+            <img src="../Images/logo.webp">
+            <img src="../Images/text_logo.svg">
+        </div>
+        <ul class="menu_header_main">
+            <li class="li_menu_header_main">فرانت اند</li>
+            <li class="li_menu_header_main">امنیت</li>
+            <li class="li_menu_header_main">پایتون</li>
+            <li class="li_menu_header_main">مهارت های نرم</li>
+            <li class="li_menu_header_main">مقالات</li>
+        </ul>
+    </div>
+    <main>
+        <div class="main_one">
+            <div class="right_main_one">
+                <!-- box notification -->
+                <div class="container_notification" style="visibility: hidden;" data-aos="zoom-in-left">
+                    <div class="txt_notification"></div>
+                    <div class="alaram_notification"><span>توجه :</span><i class='bx bx-info-circle'></i></div>
+                </div>
+                <h1 class="title_main_one" data-aos="zoom-in-left">ما به هر قیمتی دوره تولید نمی کنیم!</h1>
+                <p class="description_main_one" data-aos="fade-left" data-aos-anchor="#example-anchor"
+                    data-aos-offset="500" data-aos-duration="500">
+                    با آکادمی خصوصی سبزلرن، علم برنامه نویسی رو با خیال راحت یاد بگیر و پیشرفت کن
+                </p>
+                <div class="btns_main_one" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                    data-aos-duration="500">
+                    <button class="play_one_btn">از اینجا شروع کن</button>
+                    <div class="container"><a href="#" class="a_link"><i class="fas fa-play"></i></a><span>ما کی
+                            هستیم؟</span></div>
+                </div>
+            </div>
+            <div class="left_main_one" data-aos="zoom-in">
+                <img src="../Images/boy-light.svg" class="img_left_main_one avatar">
+            </div>
+        </div>
+        <div class="last_course">
+            <div class="header_last_course_info">
+                <div class="header_last_course_info_right">
+                    <div class="row_last_course_top">
+                        <span class="box_right_simple"></span>
+                        <p class="title_last_course_section">آخرین دوره ها</p>
+                    </div>
+                    <p class="des_last_course">
+                        سکوی پرتاپ شما به سمت موفقیت
+                    </p>
+                </div>
+                <div class="header_last_course_info_left">
+                    <a href="./courses/" class="link_all_courses">مشاهده همه دوره ها<i
+                            class='bx bx-left-arrow-alt'></i></a>
+                </div>
+            </div>
+            <div class="container_boxs_last_course">
+                <!-- <div class="box_course">
+                    <span class="offer_course">60%</span>
+                    <img src="https://sabzlearn.ir/wp-content/uploads/2023/08/sabz-redux-768x432.png"
+                        class="cover_course">
+                    <span class="tag_category">فرانت اند</span>
+                    <p class="name_course">آموزش تخصصی Redux مقدماتی تا پیشرفته</p>
+                    <p class="description_course">
+                        ریداکس یه کتابخونه پراستفاده واسه مدیریت حالت های مختلف یه برنامه جاوا اسکریپتیه که تو بازار کار
+                        ری‌اکت یکی از…
+                    </p>
+                    <div class="info_course">
+                        <div class="right_info_course">
+                            <a href="#" class="link_page_techer_course">
+                                <span class="name_techaer_course">محمد امین سعید راد</span>
+                                <i class='bx bxs-user'></i>
+                            </a>
+                        </div>
+                        <div class="left_info_course">
+                            <span class="time_course">13:20</span>
+                            <i class='bx bx-time'></i>
+                        </div>
+                    </div>
+                    <div class="bottom_box_course">
+                        <div class="bottom_box_course_right">
+                            <span class="counter_sell">900</span>
+                            <i class='bx bx-user-plus'></i>
+                        </div>
+                        <div class="bottom_box_course_left">
+                            <div class="price-container">
+                                <span class="price-value">۱۲۹,۰۰۰</span>
+                                <span class="price-label"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="road_map_developing">
+            <div class="header_road_map_course_info">
+                <div class="header_road_map_course_info_right">
+                    <div class="row_road_map_course_top">
+                        <span class="box_right_simple"></span>
+                        <p class="title_road_map_course_section">نقشه راه ها</p>
+                    </div>
+                    <p class="des_road_map_course">
+                        نقشه های راه برای شروع اصولی یادگیری
+                    </p>
+                </div>
+            </div>
+            <div class="container_road_map_developing">
+                <div class="road_map_box1" data-aos="fade-right">
+                    <span class="counter_box_road_map">29</span>
+                    <i class='bx bxl-html5'></i>
+                    <p class="title_box_road_map">فرانت اند</p>
+                </div>
+                <div class="road_map_box2" data-aos="fade-up">
+                    <span class="counter_box_road_map">29</span>
+                    <i class='bx bxs-shield-alt-2'></i>
+                    <p class="title_box_road_map">امنیت</p>
+                </div>
+                <div class="road_map_box3" data-aos="fade-down">
+                    <span class="counter_box_road_map">29</span>
+                    <i class='bx bxl-python'></i>
+                    <p class="title_box_road_map">پایتون</p>
+                </div>
+                <div class="road_map_box4" data-aos="fade-left">
+                    <span class="counter_box_road_map">29</span>
+                    <i class='bx bxl-dropbox'></i>
+                    <p class="title_box_road_map">مهارت های نرم</p>
+                </div>
+            </div>
+        </div>
+        <div class="container_help_me">
+            <div class="header_help_me_course_info">
+                <div class="header_help_me_course_info_right">
+                    <div class="row_help_me_course_top">
+                        <span class="box_right_simple_help_me"></span>
+                        <p class="title_help_me_course_section">نقشه راه ها</p>
+                    </div>
+                    <p class="des_help_me_course">
+                        نقشه های راه برای شروع اصولی یادگیری
+                    </p>
+                </div>
+            </div>
+            <div class="container_flex_info_help_me">
+                <div class="top_container_flex_info_help_me">
+                    <div class="box_help_me" data-aos="zoom-in">
+                        <img src="../Images/cdn.svg">
+                        <div class="texts_left_top_box_help_me">
+                            <h3 class="title_box_left_top_box_help_me">دوره های اختصاصی</h3>
+                            <p class="des_box_left_top_box_help_me">
+                                با پشتیبانی و کیفیت بالا ارائه میده. چون خوش نام بودن نام برند و منافع مشتری و حفظ شان
+                                دیگر همکارانش براش مهمه
+                            </p>
+                        </div>
+                    </div>
+                    <div class="box_help_me" data-aos="zoom-in">
+                        <img src="../Images/daily-backups.svg">
+                        <div class="texts_left_top_box_help_me">
+                            <h3 class="title_box_left_top_box_help_me">دوره های اختصاصی</h3>
+                            <p class="des_box_left_top_box_help_me">
+                                با پشتیبانی و کیفیت بالا ارائه میده. چون خوش نام بودن نام برند و منافع مشتری و حفظ شان
+                                دیگر همکارانش براش مهمه
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom_container_flex_info_help_me">
+                    <div class="box_help_me" data-aos="zoom-in">
+                        <img src="../Images/free-trial.svg">
+                        <div class="texts_left_top_box_help_me">
+                            <h3 class="title_box_left_top_box_help_me">دوره های اختصاصی</h3>
+                            <p class="des_box_left_top_box_help_me">
+                                با پشتیبانی و کیفیت بالا ارائه میده. چون خوش نام بودن نام برند و منافع مشتری و حفظ شان
+                                دیگر همکارانش براش مهمه
+                            </p>
+                        </div>
+                    </div>
+                    <div class="box_help_me" data-aos="zoom-in">
+                        <img src="../Images/cdn.svg">
+                        <div class="texts_left_top_box_help_me">
+                            <h3 class="title_box_left_top_box_help_me">دوره های اختصاصی</h3>
+                            <p class="des_box_left_top_box_help_me">
+                                با پشتیبانی و کیفیت بالا ارائه میده. چون خوش نام بودن نام برند و منافع مشتری و حفظ شان
+                                دیگر همکارانش براش مهمه
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="new_courses">
+            <div class="header_help_me_course_info">
+                <div class="header_help_me_course_info_right">
+                    <div class="row_help_me_course_top">
+                        <span class="box_right_simple_help_me"></span>
+                        <p class="title_help_me_course_section">جدیدترین دوره ها</p>
+                    </div>
+                    <p class="des_help_me_course">
+                        یادگیری و رشد توسعه فردی
+                    </p>
+                </div>
+            </div>
+            <div class="swiper mySwiper">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-wrapper" id="swipeerCustom">
+                    <!-- <div class="swiper-slide">
+                        <div class="box_course">
+                            <img src="https://sabzlearn.ir/wp-content/uploads/2023/08/sabz-redux-768x432.png"
+                                class="cover_course">
+                            <span class="tag_category">فرانت اند</span>
+                            <p class="name_course">آموزش تخصصی Redux مقدماتی تا پیشرفته</p>
+                            <p class="description_course">
+                                ریداکس یه کتابخونه پراستفاده واسه مدیریت حالت های مختلف یه برنامه جاوا اسکریپتیه که تو
+                                بازار کار
+                                ری‌اکت یکی از…
+                            </p>
+                            <div class="info_course">
+                                <div class="right_info_course">
+                                    <a href="#" class="link_page_techer_course">
+                                        <span class="name_techaer_course">محمد امین سعید راد</span>
+                                        <i class="bx bxs-user"></i>
+                                    </a>
+                                </div>
+                                <div class="left_info_course">
+                                    <span class="time_course">13:20</span>
+                                    <i class="bx bx-time"></i>
+                                </div>
+                            </div>
+                            <div class="bottom_box_course">
+                                <div class="bottom_box_course_right">
+                                    <span class="counter_sell">900</span>
+                                    <i class="bx bx-user-plus"></i>
+                                </div>
+                                <div class="bottom_box_course_left">
+                                    <div class="price-container">
+                                        <span class="price-value">۱۲۹,۰۰۰</span>
+                                        <span class="price-label"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="blogs">
+            <div class="header_last_course_info">
+                <div class="header_last_course_info_right">
+                    <div class="row_last_course_top">
+                        <span class="box_right_simple"></span>
+                        <p class="title_last_course_section">آخرین مقالات</p>
+                    </div>
+                    <p class="des_last_course">
+                        مقالات بروز برنامه نویسی
+                    </p>
+                </div>
+                <div class="header_last_course_info_left">
+                    <a href="./blogs/index.html" class="link_all_courses">مشاهده همه مقالات<i
+                            class='bx bx-left-arrow-alt'></i></a>
+                </div>
+            </div>
+            <div class="container_blog_and_post">
+                <!-- <div class="box_post" data-aos="flip-right">
+                    <span class="autor_write_box_post">محمد مهدی</span>
+                    <span class="time_publish_box_post">1401/06/14</span>
+                    <img src="https://sabzlearn.ir/wp-content/uploads/2023/08/android-on-javascript-768x432.png"
+                        class="cover_post">
+                    <h3 class="title_box_post">نصب جاوا اسکریپت در اندروید | با 4 روش جدید | 2023</h3>
+                    <p class="des_box_post">
+                        چطوری باید جاوا اسکریپت رو بر روی اندروید نصب کنیم ؟ همونطور که می‌دونید در دنیای برنامه نویسی
+                        همانند دنیای واقعی، با زبان‌های بسیاری روبه‌رو هستیم. یکی از محبوب‌ترین زبان‌های…
+                    </p>
+                    <a href="#" class="btn_link_box_post">مصالعه مقاله<i class='bx bxs-left-arrow-circle'></i></a>
+                </div> -->
+            </div>
+        </div>
+        <div class="social_instagram">
+            <div class="container_social_media">
+                <div class="container_social_media_right">
+                    <h3 class="title_socical_media_right">پیج اینستاگرام آکادمی سبزلرن</h3>
+                    <p class="des_social_media_right">
+                        اطلاع رسانی تخفیف ها، آموزش های رایگان و نکات کاربردی و لایو های هفتگی
+                    </p>
+                </div>
+                <div class="container_social_media_left">
+                    <a href="#" class="link_social_media">دیدن پست ها<i class='bx bxs-chevron-left'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="popular_courses">
+            <div class="header_last_course_info" id="header_last_course">
+                <div class="header_last_course_info_right">
+                    <div class="row_last_course_top">
+                        <span class="box_right_simple"></span>
+                        <p class="title_last_course_section">محبوب ترین دوره ها</p>
+                    </div>
+                    <p class="des_last_course">پرمخاطب ترین و بهترین دوره های سبزلرن</p>
+                </div>
+                <div class="header_last_course_info_left">
+                    <a href="./courses/" class="link_all_courses">مشاهده همه دوره ها<i
+                            class='bx bx-left-arrow-alt'></i></a>
+                </div>
+            </div>
+            <div class="container_popular_courses">
+                <!-- <div class="box_course">
+                    <span class="offer_course">60%</span>
+                    <img src="https://sabzlearn.ir/wp-content/uploads/2023/08/sabz-redux-768x432.png"
+                        class="cover_course">
+                    <span class="tag_category">فرانت اند</span>
+                    <p class="name_course">آموزش تخصصی Redux مقدماتی تا پیشرفته</p>
+                    <p class="description_course">
+                        ریداکس یه کتابخونه پراستفاده واسه مدیریت حالت های مختلف یه برنامه جاوا اسکریپتیه که تو بازار کار
+                        ری‌اکت یکی از…
+                    </p>
+                    <div class="info_course">
+                        <div class="right_info_course">
+                            <a href="#" class="link_page_techer_course">
+                                <span class="name_techaer_course">محمد امین سعید راد</span>
+                                <i class='bx bxs-user'></i>
+                            </a>
+                        </div>
+                        <div class="left_info_course">
+                            <span class="time_course">13:20</span>
+                            <i class='bx bx-time'></i>
+                        </div>
+                    </div>
+                    <div class="bottom_box_course">
+                        <div class="bottom_box_course_right">
+                            <span class="counter_sell">900</span>
+                            <i class='bx bx-user-plus'></i>
+                        </div>
+                        <div class="bottom_box_course_left">
+                            <div class="price-container">
+                                <span class="price-value">۱۲۹,۰۰۰</span>
+                                <span class="price-label"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="contaier_Info_footer">
+            <div class="bio_starup">
+                <h2>درباره ما</h2>
+                <p class="des_bio">
+                    سبزلرن یک اکادمی خصوصی آموزش برنامه نویسی هست که با هدف تحویل نیروی متخصص بر پایه تولید
+                    محتوای
+                    غیرسطحی
+                    فعالیت میکند
+                </p>
+            </div>
+            <div class="fast_access">
+                <h2>دسترسی سریع</h2>
+                <ul class="list_menu_fast_access">
+                    <li class="li_menu_fast_access"><a href="#">قوانین و مقررات</a></li>
+                    <li class="li_menu_fast_access"><a href="#">ارسال تیکت</a></li>
+                    <li class="li_menu_fast_access"><a href="#">همه دوره ها</a></li>
+                </ul>
+            </div>
+            <div class="link_regualr">
+                <h2>لینک های مفید</h2>
+                <ul class="list_menu_link_regulr">
+                    <li>آموزش جاوااسکریپت</li>
+                    <li>آموزش پایتون</li>
+                    <li>آموزش HTML</li>
+                    <li>آموزش CSS</li>
+                </ul>
+            </div>
+            <div class="social_media">
+                <h2>شبکه های اجتماعی</h2>
+                <li><span id="instagram">اینستاگرام <i class='bx bxl-instagram'></i></span></li>
+                <li><span id="telegram">تلگرام <i class='bx bxl-telegram'></i></span></li>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="copyRight">Copyright © 2019-2023 Sabzlearn. All rights reserved.</div>
+            <div class="Galb_sabzlearn">ساخته شده با ❤️ در سبزلرن</div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="../node_modules/animejs/lib/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="../public/assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="icon" href="../../../Images/cropped-sabz-fav-32x32.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>پیشخوان</title>
+</head>
+
+<body dir="rtl">
+    <div class="container_panel_user">
+        <nav class="nav_bar_right">
+            <div class="img_cover_panel">
+                <img src="../../../Images/logo.webp" class="img_cover_panel_logo">
+                <h1 class="title_logo_cover_panel">سبزلرن</h1>
+            </div>
+            <ul class="list_right_menu_panel">
+                <li class="li_menu_right_panel" style="background-color: #2ED573;"><a href="home.html"
+                        style="color: #fff;"><i class='bx bx-home-alt-2'></i>پیشخوان</a></li>
+                <li class="li_menu_right_panel"><a href="../my_courses/home.html"><i class='bx bx-folder-open'></i>دوره
+                        های من</a></li>
+                <li class="li_menu_right_panel"><a href="../edit_my_account/index.html"><i
+                            class="bx bxs-user-pin"></i>اطلاعات
+                        کاربری</a>
+                </li>
+                <li class="li_menu_right_panel"><a href="../tickets/index.html"><i
+                            class="bx bxs-message-square-dots"></i>تیکت ها</a></li>
+                <li class="li_menu_right_panel" id="exit_panel"><i class="bx bx-exit"></i>خروج</li>
+            </ul>
+        </nav>
+        <section class="body_bar_left">
+            <div class="header_body_bar_left">
+                <div class="header_body_bar_left_left">
+                    <a class="btn_back_site" href="../../"><i class='bx bxs-exit'></i><span>برگشت به وبسایت</span></a>
+                    <!-- <div class="circle_header_left_body"><i class='bx bx-moon'></i></div>
+                    <div class="circle_header_left_body"><i class='bx bxs-bell'></i></div> -->
+                    <div class="circle_header_left_body"><img src="" id="profile_user"></div>
+                    <div class="dropdown_memu_profile_user">
+                        <div class="dropdown_header">
+                            <div class="dropdown_menu_right"><img src="" id="profile_dropdown_user"></div>
+                            <div class="dropdown_menu_left">
+                                <span class="name_user_account"></span>
+                                <span class="count_wallet_user"></span>
+                            </div>
+                        </div>
+                        <div class="dropdown_body">
+                            <ul class="list_menu_dropdowm">
+                                <li id="panel_btn_li_user_header"><a href="#"><img
+                                            src="../../../Images/panel_user/svgexport-4.svg"><span>پیشخوان</span></a>
+                                </li>
+                                <li id="panel_my_course_btn_li_user_header"><a href="#"><img
+                                            src="../../../Images/panel_user/svgexport-5.svg"><span>دوره های
+                                            من</span></a></li>
+                                <li><a href="#"><img src="../../../Images/panel_user/svgexport-6.svg"><span>تیکت های
+                                            پشتیبانی</span></a></li>
+                                <li id="exit_panel_li"><a href="#"><img
+                                            src="../../../Images/panel_user/svgexport-7.svg"><span>خروج</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="header_body_bar_left_right">
+                    <h2 class="title_body_left_panel"></h2>
+                </div>
+            </div>
+            <div class="featears_header_body">
+                <div class="feather_box" style="background-color: #FBBF24; box-shadow: 1px 1px 15px 0px #FBBF24;">
+                    <img src="../../../Images/panel_user/svgexport-16.svg">
+                    <div class="txt_featears_box">
+                        <h3 class="txt_featers_box_title">کش بک</h3>
+                        <h3 class="des_featers_box_title">0 تومان</h3>
+                    </div>
+                </div>
+                <div class="feather_box" style="background-color: #0EA5E9; box-shadow: 1px 1px 15px 0px #0EA5E9;">
+                    <img src="../../../Images/panel_user/svgexport-17.svg">
+                    <div class="txt_featears_box">
+                        <h3 class="txt_featers_box_title">دوره های من</h3>
+                        <h3 class="des_featers_box_title">17 دوره</h3>
+                    </div>
+                </div>
+                <div class="feather_box" style="background-color: #EC4899; box-shadow: 1px 1px 15px 0px #EC4899;">
+                    <img src="../../../Images/panel_user/svgexport-18.svg">
+                    <div class="txt_featears_box">
+                        <h3 class="txt_featers_box_title">مجموع تیکت ها</h3>
+                        <h3 class="des_featers_box_title" id="all_tickets"></h3>
+                    </div>
+                </div>
+                <div class="feather_box" style="background-color: #2ED573; box-shadow: 1px 1px 15px 0px #2ED573;">
+                    <img src="../../../Images/panel_user/svgexport-19.svg">
+                    <div class="txt_featears_box">
+                        <h3 class="txt_featers_box_title">موجودی حساب</h3>
+                        <h3 class="des_featers_box_title" id="count_walletSS"></h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

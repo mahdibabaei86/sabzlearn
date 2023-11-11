@@ -1,0 +1,351 @@
+.container_panel_user {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    height: auto;
+    margin: 30px;
+}
+
+.bx {
+    font-size: 25px;
+    padding-left: 9px;
+}
+
+.nav_bar_right {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0px;
+}
+
+.img_cover_panel {
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+    align-items: center;
+}
+
+.img_cover_panel_logo {
+    width: 90px;
+}
+
+.title_logo_cover_panel {
+    font-family: dana;
+    font-size: 35px;
+    padding-right: 10px;
+    font-weight: 900;
+}
+
+.list_right_menu_panel {
+    margin: 30px 0px 0px 0px;
+    padding: 5px;
+}
+
+.li_menu_right_panel {
+    cursor: pointer;
+    font-family: 'dana';
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 9px;
+    width: 100%;
+}
+
+.li_menu_right_panel img {
+    padding-left: 9px;
+}
+
+.body_bar_left {
+    background-color: #F3F4F6;
+    border-radius: 1rem;
+    height: 100%;
+    width: 77%;
+}
+
+.header_body_bar_left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 19px 10px;
+}
+
+.header_body_bar_left_left {
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    order: 1;
+}
+
+.circle_header_left_body img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+}
+
+.circle_header_left_body {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 47px;
+    height: 47px;
+    cursor: pointer;
+}
+
+.circle_header_left_body i {
+    display: block;
+    margin: 11px;
+    font-size: 23px;
+    color: #4f4f4f;
+}
+
+.header_body_bar_left_right {
+    width: 80%;
+}
+
+.title_body_left_panel {
+    font-family: 'dana';
+    font-size: 20px;
+    padding-right: 40px;
+}
+
+.access_btns_courses {}
+
+.btn_new_course {
+    background-color: rgb(46, 213, 115);
+    color: #fff;
+    font-family: 'dana';
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 9px;
+    width: 138px;
+    font-size: 16px;
+    margin-right: 35px;
+    cursor: pointer;
+    box-shadow: 1px 1px 8px 1px rgb(46 213 115 / 38%);
+}
+
+.container_box_my_courses {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.box_course {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #fff;
+    width: 270px;
+    height: auto;
+    border-radius: 9px;
+    padding: 0px 0px 1px 0px;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 1px 1px 9px 0px #d9d9d9;
+}
+
+.box_course img {
+    width: 100%;
+    border-radius: 9px;
+}
+
+.name_box_course {
+    line-height: 23px;
+    font-family: 'dana';
+    font-size: 15px;
+    padding: 10px 8px 3px 0px;
+}
+
+.btns_access_course {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 9px;
+}
+
+.edit_box_course {
+    width: 117px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 1px 1px 11px 0px #ffaa34;
+    outline: none;
+    color: #fff;
+    background-color: #ffaa34;
+    font-family: 'dana';
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    height: 38px;
+}
+
+.remove_box_course {
+    width: 117px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 1px 1px 11px 0px #ff3434;
+    outline: none;
+    color: #fff;
+    background-color: #ff3434;
+    font-family: 'dana';
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    height: 38px;
+}
+
+@font-face {
+    font-family: 'dana';
+    src: url('../../assets/fonts/dana-medium.woff') format('woff');
+}
+
+;
+
+
+.container_panel_user {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    height: auto;
+    margin: 30px;
+}
+
+.nav_bar_right {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0px;
+}
+
+.img_cover_panel {
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+    align-items: center;
+}
+
+.img_cover_panel_logo {
+    width: 90px;
+}
+
+.title_logo_cover_panel {
+    font-family: dana;
+    font-size: 35px;
+    padding-right: 10px;
+    font-weight: 900;
+}
+
+.list_right_menu_panel {
+    margin: 30px 0px 0px 0px;
+    padding: 5px;
+}
+
+.li_menu_right_panel {
+    cursor: pointer;
+    font-family: 'dana';
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 9px;
+    width: 100%;
+}
+
+.li_menu_right_panel a {
+    display: flex;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+}
+
+.li_menu_right_panel img {
+    padding-left: 9px;
+}
+
+.body_bar_left {
+    background-color: #F3F4F6;
+    border-radius: 1rem;
+    height: 100%;
+    width: 77%;
+}
+
+.header_body_bar_left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 19px 10px;
+}
+
+.header_body_bar_left_left {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    order: 1;
+}
+
+.circle_header_left_body img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+}
+
+.circle_header_left_body {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 47px;
+    height: 47px;
+    cursor: pointer;
+}
+
+.circle_header_left_body i {
+    display: block;
+    margin: 11px;
+    font-size: 23px;
+    color: #4f4f4f;
+}
+
+.header_body_bar_left_right {
+    width: 80%;
+}
+
+.toast-message {
+    font-family: dana;
+}
+
+.title_body_left_panel {
+    font-family: 'dana';
+    font-size: 20px;
+    padding-right: 40px;
+}
+
+.swal2-popup {
+    font-family: dana !important;
+}
+
+.swal2-actions button {
+    font-family: dana !important;
+}
+
+.btn_back_site {
+    text-decoration: none;
+    color: #000;
+    margin-left: 19px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    border: none;
+    font-family: 'dana';
+    font-size: 16px;
+    padding: 10px 10px;
+    width: 175px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px 4px #e4e4e4;
+}

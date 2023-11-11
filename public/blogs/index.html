@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="icon" href="../../Images/cropped-sabz-fav-32x32.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/css/colors.css">
+    <link rel="stylesheet" href="../single_course/style.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>مقالات - سبزلرن</title>
+</head>
+
+<body dir="rtl">
+    <header>
+        <nav>
+            <span class="btn_toggle_hamberger"><i class='bx bx-menu'></i></span>
+            <img src="../../Images/logo.webp" alt="Sabzlean" id="logo_header">
+            <ul class="menu_header_main">
+                <li class="li_menu_header_main">فرانت اند
+                    <i class='bx bxs-chevron-down'></i>
+                    <ul class="menu_megan_menu_main">
+                        <li class="li_menu_mega_main">آموزش HTML</li>
+                        <li class="li_menu_mega_main">آموزش CSS</li>
+                        <li class="li_menu_mega_main">آموزش FlexBox</li>
+                        <li class="li_menu_mega_main">آموزش CSS Grid</li>
+                        <li class="li_menu_mega_main">آموزش Tailwind CSS</li>
+                        <li class="li_menu_mega_main">آموزش اصولی طراحی قالب</li>
+                        <li class="li_menu_mega_main">آموزش بوت استرپ</li>
+                        <li class="li_menu_mega_main">آموزش جاوااسکریپت</li>
+                    </ul>
+                </li>
+                <li class="li_menu_header_main">امنیت
+                    <i class='bx bxs-chevron-down'></i>
+                    <ul class="menu_megan_menu_main">
+                        <li class="li_menu_mega_main">شبکه با گرایش امنیت</li>
+                        <li class="li_menu_mega_main">لینوکس با گرایش امنیت</li>
+                        <li class="li_menu_mega_main">آموزش هکر قانونمند - CEH V11</li>
+                        <li class="li_menu_mega_main">آموزش پایتون سیاه</li>
+                        <li class="li_menu_mega_main">آموزش جاوااسکریپت سیاه</li>
+                    </ul>
+                </li>
+                <li class="li_menu_header_main">پایتون
+                    <i class='bx bxs-chevron-down'></i>
+                    <ul class="menu_megan_menu_main">
+                        <li class="li_menu_mega_main">دوره آموزش پایتون</li>
+                        <li class="li_menu_mega_main">پروژه های کاربردی با پایتون</li>
+                        <li class="li_menu_mega_main">ترفند های کاربردی با پایتون</li>
+                        <li class="li_menu_mega_main">مصور سازی داده با پایتون</li>
+                    </ul>
+                </li>
+                <li class="li_menu_header_main">مهارت های نرم</li>
+                <li class="li_menu_header_main" style="padding-top: 10px !important;"><a href="./index.html"
+                        style="text-decoration: none; color: #636363">مقالات</a></li>
+            </ul>
+        </nav>
+        <div class="btns_header">
+            <div class="desired_contaionmer_searchs">
+                <div class="container_search_nav">
+                    <input type="text" class="input_search_nav" placeholder="جستجو">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+                        width="24" height="24">
+                        <defs>
+                            <symbol id="magnifying-glass" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5px" stroke="#000000">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                                    stroke="#000000" fill="none" stroke-width="1.5px"></path>
+                            </symbol>
+                        </defs>
+                        <g>
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                                stroke="rgb(112, 112, 112)" fill="none" stroke-width="2.5px"></path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="container_result_search">
+                    <!-- <div class="course_search" onclick="getviewCourse(this)" data-symbol="bootstrap">
+                        <img src="http://localhost/sabzlearn\backend\uploads\covers\unnamed.jpg" class="
+                            cover_course_last_one">
+                        <div class="info_course_last">
+                            <h3 class="name_course">آموزش بوت استرپ 5 مقدماتی تا پیشرفته (2023)</h3>
+                            <p class="description_course">آموزش bootstrap 5 خوش اومدین به آموزش بوت استرپ 5 سبزلرن! حتما
+                                تا الان html و css رو ...</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="circle_Profile_user">
+                <img src="" id="profile_header_user">
+            </div>
+            <button class="btn_header_main">ورود | ثبت نام</button>
+            <!-- <div class="checkbox-wrapper-41">
+                <input type="checkbox">
+            </div> -->
+            <div class="dropdown_memu_profile_user">
+                <div class="dropdown_header">
+                    <div class="dropdown_menu_right"><img src="" id="profile_dropdown_user"></div>
+                    <div class="dropdown_menu_left">
+                        <span class="name_user_account"></span>
+                        <span class="count_wallet_user"></span>
+                    </div>
+                </div>
+                <div class="dropdown_body">
+                    <ul class="list_menu_dropdowm">
+                        <li id="panel_btn_li_user_header"><a href="#"><img
+                                    src="../../Images/panel_user/svgexport-4.svg"><span>پیشخوان</span></a></li>
+                        <li id="panel_my_course_btn_li_user_header"><a href="#"><img
+                                    src="../../Images/panel_user/svgexport-5.svg"><span>دوره های من</span></a></li>
+                        <li id="tcket_support"><a href="#"><img src="../../Images/panel_user/svgexport-6.svg"><span>تیکت
+                                    های
+                                    پشتیبانی</span></a></li>
+                        <li id="exit_panel"><a href="#"><img
+                                    src="../../Images/panel_user/svgexport-7.svg"><span>خروج</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="menu_hamberger_right">
+        <i class='bx bx-x'></i>
+        <div class="container_logo_txts">
+            <img src="../../Images/logo.webp">
+            <img src="../../Images/text_logo.svg">
+        </div>
+        <ul class="menu_header_main">
+            <li class="li_menu_header_main">فرانت اند</li>
+            <li class="li_menu_header_main">امنیت</li>
+            <li class="li_menu_header_main">پایتون</li>
+            <li class="li_menu_header_main">مهارت های نرم</li>
+            <li class="li_menu_header_main">مقالات</li>
+        </ul>
+    </div>
+    <main>
+        <div class="header_courses">
+            <h1 class="title_courses">مقالات</h1>
+        </div>
+        <div class="container_courses">
+            <div class="container_left_courses">
+                <div class="ordered_sections">
+                    <div class="info_ordereds">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5" width="25.811" height="17.879">
+                            <defs>
+                                <symbol id="sort" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 25.811 17.879" stroke="#000000" stroke-width="1.5px"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+                                    <path d="M.556,16.379V0" transform="translate(4.349)" stroke="#000000" fill="none"
+                                        stroke-width="1.5px"></path>
+                                    <path d="M9.809,0,4.9,4.927,0,0" transform="translate(0 11.452)" stroke="#000000"
+                                        fill="none" stroke-width="1.5px"></path>
+                                    <path d="M5.5.5H0" transform="translate(15.316 10.415)" stroke="#000000" fill="none"
+                                        stroke-width="1.5px"></path>
+                                    <path d="M7.322.5H0" transform="translate(15.316 4.883)" stroke="#000000"
+                                        fill="none" stroke-width="1.5px"></path>
+                                    <path d="M3.314.5H0" transform="translate(15.316 15.708)" stroke="#000000"
+                                        fill="none" stroke-width="1.5px"></path>
+                                    <path d="M8.684.5H0" transform="translate(15.316 0.072)" stroke="#000000"
+                                        fill="none" stroke-width="1.5px"></path>
+                                </symbol>
+                            </defs>
+                            <g>
+                                <path d="M.556,16.379V0" transform="translate(4.349)" stroke="#000000" fill="none"
+                                    stroke-width="1.5px"></path>
+                                <path d="M9.809,0,4.9,4.927,0,0" transform="translate(0 11.452)" stroke="#000000"
+                                    fill="none" stroke-width="1.5px"></path>
+                                <path d="M5.5.5H0" transform="translate(15.316 10.415)" stroke="#000000" fill="none"
+                                    stroke-width="1.5px"></path>
+                                <path d="M7.322.5H0" transform="translate(15.316 4.883)" stroke="#000000" fill="none"
+                                    stroke-width="1.5px"></path>
+                                <path d="M3.314.5H0" transform="translate(15.316 15.708)" stroke="#000000" fill="none"
+                                    stroke-width="1.5px"></path>
+                                <path d="M8.684.5H0" transform="translate(15.316 0.072)" stroke="#000000" fill="none"
+                                    stroke-width="1.5px"></path>
+                            </g>
+                        </svg>
+                        <span>مرتب سازی :</span>
+                    </div>
+                    <ul class="list_ul_ordered">
+                        <li id="all" class="active-menu">عادی</li>
+                        <li id="new">جدیدترین</li>
+                        <li id="oud">قدیمی ترین</li>
+                        <!-- <li id="usersFrindly">پرمخاطب ها</li> -->
+                    </ul>
+                </div>
+                <div class="container_list_courses">
+                    <!-- <div class="box_course" data-symbol="ReactJS" onclick="getviewCourse(this)"
+                        data-aos="flip-right">
+                        <span class="offer_course" style="display:block">25%</span>
+                        <img src="http://localhost/sabzlearn\backend\uploads\covers\Com_react.png"
+                            style="width: 260px;border-radius: 9px;">
+                        <span class="tag_category">فرانت اند</span>
+                        <p class="name_course">آموزش ری اکت ( ReactJS ) در دنیای واقعی | از 0 تا استخدام</p>
+                        <p class="description_course">حدود 40 ساعت آموزش جامع و تخصصی ری اکت! شما در دوره آموزش ری
+                            اکت...</p>
+                        <div class="info_course">
+                            <div class="right_info_course">
+                                <a href="#" class="link_page_techer_course">
+                                    <span class="name_techaer_course">mahdi</span>
+                                    <i class="bx bxs-user"></i>
+                                </a>
+                            </div>
+                            <div class="left_info_course">
+                                <span class="time_course">99 ساعت</span>
+                                <i class="bx bx-time"></i>
+                            </div>
+                        </div>
+                        <div class="bottom_box_course">
+                            <div class="bottom_box_course_right">
+                                <span class="counter_sell">0</span>
+                                <i class="bx bx-user-plus"></i>
+                            </div>
+                            <div class="bottom_box_course_left">
+                                <div class="price-container">
+                                    <span class="price-value" style="display:none">رایگان!</span>
+                                    <span class="price-value" style="display:block">۳٬۶۰۰٬۰۰۰</span>
+                                    <span class="price-label" style="display:block"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="container_right_courses">
+                <div class="section_search_courses">
+                    <input type="text" placeholder="در بین مقالات جستجو کنید" class="search_courses">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+                        width="24" height="24">
+                        <defs>
+                            <symbol id="magnifying-glass" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5px" stroke="#000000">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                                    stroke="#000000" fill="none" stroke-width="1.5px"></path>
+                            </symbol>
+                        </defs>
+                        <g>
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                                stroke="#000000" fill="none" stroke-width="1.5px"></path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="container_category_course">
+                    <h2>دسته بندی مقالات</h2>
+                    <ul class="list_category">
+                        <li>
+                            <span class="section_name_and_backend">
+                                <div class="checkbox-wrapper-12">
+                                    <div class="cbx">
+                                        <input id="cbx-12" type="checkbox" data-category="بک اند"
+                                            onclick="selectCategory(this)" />
+                                        <label for="cbx-12"></label>
+                                        <svg width="15" height="14" viewbox="0 0 15 14" fill="none">
+                                            <path d="M2 8.36364L6.23077 12L13 2"></path>
+                                        </svg>
+                                    </div>
+                                    <!-- Gooey-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                        <defs>
+                                            <filter id="goo-12">
+                                                <fegaussianblur in="SourceGraphic" stddeviation="4" result="blur">
+                                                </fegaussianblur>
+                                                <fecolormatrix in="blur" mode="matrix"
+                                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"
+                                                    result="goo-12"></fecolormatrix>
+                                                <feblend in="SourceGraphic" in2="goo-12"></feblend>
+                                            </filter>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <span class="name_category">طراحی سایت</span>
+                            </span>
+                            <!-- <span class="count">14</span> -->
+                        </li>
+                        <li>
+                            <span class="section_name_and_backend">
+                                <div class="checkbox-wrapper-12">
+                                    <div class="cbx">
+                                        <input id="cbx-12" type="checkbox" data-category="فرانت اند"
+                                            onclick="selectCategory(this)" />
+                                        <label for="cbx-12"></label>
+                                        <svg width="15" height="14" viewbox="0 0 15 14" fill="none">
+                                            <path d="M2 8.36364L6.23077 12L13 2"></path>
+                                        </svg>
+                                    </div>
+                                    <!-- Gooey-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                        <defs>
+                                            <filter id="goo-12">
+                                                <fegaussianblur in="SourceGraphic" stddeviation="4" result="blur">
+                                                </fegaussianblur>
+                                                <fecolormatrix in="blur" mode="matrix"
+                                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"
+                                                    result="goo-12"></fecolormatrix>
+                                                <feblend in="SourceGraphic" in2="goo-12"></feblend>
+                                            </filter>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <span class="name_category">جاوااسکریپت</span>
+                            </span>
+                            <!-- <span class="count">14</span> -->
+                        </li>
+                        <li>
+                            <span class="section_name_and_backend">
+                                <div class="checkbox-wrapper-12">
+                                    <div class="cbx">
+                                        <input id="cbx-12" type="checkbox" data-category="هوش مصنوعی"
+                                            onclick="selectCategory(this)" />
+                                        <label for="cbx-12"></label>
+                                        <svg width="15" height="14" viewbox="0 0 15 14" fill="none">
+                                            <path d="M2 8.36364L6.23077 12L13 2"></path>
+                                        </svg>
+                                    </div>
+                                    <!-- Gooey-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                        <defs>
+                                            <filter id="goo-12">
+                                                <fegaussianblur in="SourceGraphic" stddeviation="4" result="blur">
+                                                </fegaussianblur>
+                                                <fecolormatrix in="blur" mode="matrix"
+                                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"
+                                                    result="goo-12"></fecolormatrix>
+                                                <feblend in="SourceGraphic" in2="goo-12"></feblend>
+                                            </filter>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <span class="name_category">ریکت جی اس</span>
+                            </span>
+                            <!-- <span class="count">14</span> -->
+                        </li>
+                        <li>
+                            <span class="section_name_and_backend">
+                                <div class="checkbox-wrapper-12">
+                                    <div class="cbx">
+                                        <input id="cbx-12" type="checkbox" data-category="مهارت نرم"
+                                            onclick="selectCategory(this)" />
+                                        <label for="cbx-12"></label>
+                                        <svg width="15" height="14" viewbox="0 0 15 14" fill="none">
+                                            <path d="M2 8.36364L6.23077 12L13 2"></path>
+                                        </svg>
+                                    </div>
+                                    <!-- Gooey-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                        <defs>
+                                            <filter id="goo-12">
+                                                <fegaussianblur in="SourceGraphic" stddeviation="4" result="blur">
+                                                </fegaussianblur>
+                                                <fecolormatrix in="blur" mode="matrix"
+                                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"
+                                                    result="goo-12"></fecolormatrix>
+                                                <feblend in="SourceGraphic" in2="goo-12"></feblend>
+                                            </filter>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <span class="name_category">هوش مصنوعی</span>
+                            </span>
+                            <!-- <span class="count">14</span> -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="contaier_Info_footer">
+            <div class="bio_starup">
+                <h2>درباره ما</h2>
+                <p class="des_bio">
+                    سبزلرن یک اکادمی خصوصی آموزش برنامه نویسی هست که با هدف تحویل نیروی متخصص بر پایه تولید
+                    محتوای
+                    غیرسطحی
+                    فعالیت میکند
+                </p>
+            </div>
+            <div class="fast_access">
+                <h2>دسترسی سریع</h2>
+                <ul class="list_menu_fast_access">
+                    <li class="li_menu_fast_access"><a href="#">قوانین و مقررات</a></li>
+                    <li class="li_menu_fast_access"><a href="#">ارسال تیکت</a></li>
+                    <li class="li_menu_fast_access"><a href="#">همه دوره ها</a></li>
+                </ul>
+            </div>
+            <div class="link_regualr">
+                <h2>لینک های مفید</h2>
+                <ul class="list_menu_link_regulr">
+                    <li>آموزش جاوااسکریپت</li>
+                    <li>آموزش پایتون</li>
+                    <li>آموزش HTML</li>
+                    <li>آموزش CSS</li>
+                </ul>
+            </div>
+            <div class="social_media">
+                <h2>شبکه های اجتماعی</h2>
+                <li><span id="instagram">اینستاگرام <i class='bx bxl-instagram'></i></span></li>
+                <li><span id="telegram">تلگرام <i class='bx bxl-telegram'></i></span></li>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="copyRight">Copyright © 2019-2023 Sabzlearn. All rights reserved.</div>
+            <div class="Galb_sabzlearn">ساخته شده با ❤️ در سبزلرن</div>
+        </div>
+    </footer>
+    <script src="../../node_modules/animejs/lib/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../../../assets/css/reset.css">
+    <link rel="icon" href="../../../../Images/cropped-sabz-fav-32x32.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <title>پیشخوان</title>
+</head>
+
+<body dir="rtl">
+    <div class="container_panel_user">
+        <nav class="nav_bar_right">
+            <div class="img_cover_panel">
+                <img src="../../../../Images/logo.webp" class="img_cover_panel_logo">
+                <h1 class="title_logo_cover_panel">سبزلرن</h1>
+            </div>
+            <ul class="list_right_menu_panel">
+                <li class="li_menu_right_panel"><a href="../../home/home.html"><i class='bx bx-home-alt-2'></i>پیشخوان</a>
+                </li>
+                <li class="li_menu_right_panel"><a href="../../courses/home.html"><i class='bx bx-folder-open'></i>دوره های
+                        من</a></li>
+                <li class="li_menu_right_panel" style="background-color: #2ED573"><a href="../"
+                        style="color: #fff;"><i class='bx bxl-blogger'></i>وبلاگ</a></li>
+                <li class="li_menu_right_panel"><a href="../../edit_my_account/index.html"><i
+                            class="bx bxs-user-pin"></i>اطلاعات
+                        کاربری</a>
+                </li>
+                <li class="li_menu_right_panel"><a href="../../tickets/index.html"><i
+                            class="bx bxs-message-square-dots"></i>تیکت ها</a></li>
+                <li class="li_menu_right_panel"><a href="../../users/index.html"><i class="bx bxs-user-pin"></i>کاربران</a>
+                </li>
+                <li class="li_menu_right_panel" id="exit_panel"><i class="bx bx-exit"></i>خروج</li>
+            </ul>
+        </nav>
+        <section class="body_bar_left">
+            <div class="header_body_bar_left">
+                <div class="header_body_bar_left_left">
+                    <a class="btn_back_site" href="../../../"><i class='bx bxs-exit'></i><span>برگشت به وبسایت</span></a>
+                    <!-- <div class="circle_header_left_body"><i class='bx bx-moon'></i></div>
+                    <div class="circle_header_left_body"><i class='bx bxs-bell'></i></div> -->
+                    <div class="circle_header_left_body"><img src="" id="profile_user"></div>
+                </div>
+                <div class="header_body_bar_left_right">
+                    <h2 class="title_body_left_panel"></h2>
+                </div>
+            </div>
+            <section id="registration-page">
+                <form class="signup-form">
+                    <!-- FORM HEADER -->
+                    <div class="form-header">
+                        <h1>ایجاد مقاله جدید</h1>
+                    </div>
+                    <!-- FORM BODY -->
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="input-group">
+                                <label>عنوان مقاله</label>
+                                <input class="title_article" type="text"></input>
+                            </div>
+                        </div>
+                        <!-- Gender & Hobbies -->
+                        <div class="row">
+                            <div class="input-group">
+                                <label>دسته بندی</label>
+                                <input type="text" id="list_type_course">
+                            </div>
+                            <div class="input-group">
+                                <label>کاور دوره</label>
+                                <input type="file" class="cover_picture_course">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <label>توضیح بلند</label>
+                                <textarea class="description_long_course" style="height: 500px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  FORM FOOTER   -->
+                    <div class="form-footer">
+                        <button class="btn btn_create_course">منتشر کردن مقاله</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

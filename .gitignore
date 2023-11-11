@@ -1,0 +1,5 @@
+node_modules
+package-lock.json
+backend/.env
+OwlCarousel2-2.3.4
+backend/uploads/

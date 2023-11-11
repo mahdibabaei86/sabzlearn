@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../Images/cropped-sabz-fav-32x32.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <title>تایید اکانت - سبز لرن</title>
+</head>
+
+<body>
+    <div class="container_logo">
+        <img src="../../../Images/logo.webp" id="logo">
+        <img src="../../../Images/text_logo.svg" id="logo_text">
+    </div>
+    <main>
+        <div class="container">
+            <header>
+                <i class="bx bxs-check-shield"></i>
+            </header>
+            <h4>Enter OTP Code</h4>
+            <form action="#">
+                <div class="input-field">
+                    <input type="text" />
+                    <input type="text" disabled />
+                    <input type="text" disabled />
+                    <input type="text" disabled />
+                </div>
+                <span id="counter_time"></span>
+                <button>تایید کد</button>
+            </form>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
