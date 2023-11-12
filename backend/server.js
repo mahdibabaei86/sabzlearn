@@ -62,6 +62,11 @@ app.use('/api', notificationPublicRouter);
 app.use('/api', productsRouterPublic);
 app.use('/api', blogRouterPublic);
 
+// user
+app.use('/api', authUser, usersUserRouter);
+app.use('/api', authUser, ticketUserRouter);
+app.use('/api', authUser, blogRouterUser);
+
 // admin
 app.use('/api', authAdmin, productsRouterAdmin);
 app.use('/api', authAdmin, usersAdminRouter);
@@ -70,10 +75,6 @@ app.use('/api', authAdmin, ticketsRouterAdmins);
 app.use('/api', authAdmin, blogRouterAdmin);
 app.use('/api', authAdmin, noteRouterAdmin);
 
-// user
-app.use('/api', authUser, usersUserRouter);
-app.use('/api', authUser, ticketUserRouter);
-app.use('/api', authUser, blogRouterUser);
 
 app.listen(3000, () => {
     console.log('server runing port 3000');
