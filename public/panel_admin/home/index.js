@@ -215,7 +215,7 @@ function appendDomAllAlarm() {
                 go.forEach(alaram => {
                     document.querySelector('.container_add_event_clock').insertAdjacentHTML('beforeend', `
                 <div class="list_event_clock" data-id="${alaram.id}">
-                                    <p class="title_event_clock_list">${alaram.title}</p>
+                                    <p class="title_event_clock_list">${(alaram.title).length > 30 ? `${alaram.title.slice(0, 25)}...` : alaram.title}</p>
                                     <div>
                                     <button class="btn_remove_evet_clock" onclick="removeAlaram(this)">حذف</button>
                                     <button class="btn_information_evet_clock" onclick="viewInfoAlarm(this)">جزئیات</button>
@@ -260,26 +260,26 @@ function viewInfoAlarm(info) {
             "authorization": InfoToken
         }
     }).then(res => res.json())
-    .then(go => {
-        let SelectAlaram = go.find(alaram => {
-            return alaram.id == infoTag
-        });
-        Swal.fire({
-            title: `<strong>عنوان: ${SelectAlaram.title}</strong>`,
-            icon: "info",
-            html: `
+        .then(go => {
+            let SelectAlaram = go.find(alaram => {
+                return alaram.id == infoTag
+            });
+            Swal.fire({
+                title: `<strong>عنوان: ${SelectAlaram.title}</strong>`,
+                icon: "info",
+                html: `
               <h2>زمان ایجاد یادداشت: ${SelectAlaram.clock}</h2>
               <h2>توضیحات: ${SelectAlaram.note}</h2>
             `,
-            showCloseButton: true,
-            focusConfirm: false,
-            confirmButtonText: `
+                showCloseButton: true,
+                focusConfirm: false,
+                confirmButtonText: `
               بستن
             `,
-            confirmButtonAriaLabel: "Thumbs up, great!",
-            cancelButtonText: `
+                confirmButtonAriaLabel: "Thumbs up, great!",
+                cancelButtonText: `
               <i class="fa fa-thumbs-down"></i>
             `,
+            });
         });
-    });
 }
