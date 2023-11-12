@@ -178,7 +178,7 @@ btn_add_clock.addEventListener('click', () => {
             email: userInfo.email,
             username: userInfo.username
         }
-        fetch(`${url}api/admin/alaram/new/`, {
+        fetch(`${url}api/admin/note/new/`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -187,8 +187,8 @@ btn_add_clock.addEventListener('click', () => {
             body: JSON.stringify(newAlarm)
         }).then(res => res.text())
             .then(go => {
-                if (go == 'create alaram') {
-                    toastr.success('یادآور ایجاد شد');
+                if (go == 'create note') {
+                    toastr.success('یادداشت ایجاد شد');
                     setTimeout(() => {
                         location.reload();
                     }, 3000);
@@ -201,7 +201,7 @@ btn_add_clock.addEventListener('click', () => {
 
 
 function appendDomAllAlarm() {
-    fetch(`${url}api/admin/alaram/all/`, {
+    fetch(`${url}api/admin/note/all/`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
@@ -225,7 +225,7 @@ function appendDomAllAlarm() {
                 });
             } else {
                 document.querySelector('.container_add_event_clock').insertAdjacentHTML('beforeend', `<div class="alert-danger">
-                <span>یادآوری تنظیم نشده است!</span>
+                <span>یادداشت تنظیم نشده است!</span>
                 <i class="bx bxs-info-circle"></i>
                 </div>`);
             }
@@ -234,7 +234,7 @@ function appendDomAllAlarm() {
 
 function removeAlaram(info) {
     let id = info.parentElement.parentElement.dataset.id
-    fetch(`${url}api/admin/alaram/remove/${id}/`, {
+    fetch(`${url}api/admin/note/remove/${id}/`, {
         method: 'DELETE',
         headers: {
             "Content-Type": "application/json",
@@ -242,8 +242,8 @@ function removeAlaram(info) {
         }
     }).then(res => res.text())
         .then(go => {
-            if (go == 'remove alaram') {
-                toastr.error('یادآور حذف شد');
+            if (go == 'remove note') {
+                toastr.error('یادداشت حذف شد');
                 setTimeout(() => {
                     location.reload();
                 }, 2000);
@@ -253,7 +253,7 @@ function removeAlaram(info) {
 
 function viewInfoAlarm(info) {
     let infoTag = info.parentElement.parentElement.dataset.id;
-    fetch(`${url}api/admin/alaram/all/`, {
+    fetch(`${url}api/admin/note/all/`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
@@ -268,7 +268,7 @@ function viewInfoAlarm(info) {
             title: `<strong>عنوان: ${SelectAlaram.title}</strong>`,
             icon: "info",
             html: `
-              <h2>شروع یادآور: ${SelectAlaram.clock}</h2>
+              <h2>زمان ایجاد یادداشت: ${SelectAlaram.clock}</h2>
               <h2>توضیحات: ${SelectAlaram.note}</h2>
             `,
             showCloseButton: true,

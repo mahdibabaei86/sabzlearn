@@ -25,7 +25,7 @@ const productsRouterPublic = require('./public/products');
 const blogRouterPublic = require('./public/blog');
 const blogRouterAdmin = require('./admin/blog');
 const blogRouterUser = require('./user/blog');
-const ClockRouterAdmin = require('./admin/Clock_Alaram.js');
+const noteRouterAdmin = require('./admin/notes.js');
 app.use(cors({
     origin: 'http://localhost',
     credentials: true
@@ -68,7 +68,7 @@ app.use('/api', authAdmin, usersAdminRouter);
 app.use('/api', authAdmin, notificationAdminRouter);
 app.use('/api', authAdmin, ticketsRouterAdmins);
 app.use('/api', authAdmin, blogRouterAdmin);
-app.use('/api', authAdmin, ClockRouterAdmin);
+app.use('/api', authAdmin, noteRouterAdmin);
 
 // user
 app.use('/api', authUser, usersUserRouter);

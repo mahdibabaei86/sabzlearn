@@ -295,7 +295,7 @@
 
 .contaier_add_clock_inputs {
     font-family: dana;
-    margin: 21px 0px;
+    margin: 21px 0px 10px 0px;
     display: flex;
     justify-content: space-between;
 }
@@ -313,7 +313,7 @@
     height: 28px;
     border: none;
     padding: 10px;
-    width: 130px;
+    width: 161px;
     border-radius: 5px;
 }
 
