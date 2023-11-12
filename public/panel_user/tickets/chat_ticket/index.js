@@ -5,7 +5,7 @@ let profile_user = document.querySelector('#profile_user');
 let msBody = document.querySelector('.ms-body');
 let userInfo = JSON.parse(localStorage.getItem('user'));
 let title_page = document.querySelector('.title_page');
-let InfoToken, token = localStorage.getItem('token');
+let InfoToken = localStorage.getItem('token');
 let inputMessage = document.querySelector('.box-bottom_replay_message input');
 let idTicket = new URLSearchParams(location.search).get('id');
 document.title = `تیکت #${idTicket} - پنل کاربری - سبز لرن`
@@ -19,7 +19,7 @@ function isLogin(pathRedirect) {
                 let isLoginUser = go.some(user => {
                     return user.username == userInfo.username && user.password == userInfo.password && userInfo.type == user.type
                 });
-                fetch(`${url}api/token/isVriefy/${token}/`)
+                fetch(`${url}api/token/isVriefy/${InfoToken}/`)
                     .then(res => res.text())
                     .then(go => {
                         if (!isLoginUser || go !== 'Access Token') {

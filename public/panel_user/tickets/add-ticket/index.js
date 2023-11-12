@@ -4,7 +4,7 @@ let profile_user = document.querySelector('#profile_user');
 let userInfo = JSON.parse(localStorage.getItem('user'));
 let list_departeman = document.querySelector('#list_type_user');
 let title_ticket = document.querySelector('.name_input');
-let InfoToken, token = localStorage.getItem('token');
+let InfoToken = localStorage.getItem('token');
 let descriptionTicket = document.querySelector('.bio_user');
 let btnSend = document.querySelector('.btn_create_user');
 let url = 'http://localhost:3000/';
@@ -34,7 +34,7 @@ function isLogin(pathRedirect) {
                 let isLoginUser = go.some(user => {
                     return user.username == userInfo.username && user.password == userInfo.password && userInfo.type == user.type
                 });
-                fetch(`${url}api/token/isVriefy/${token}/`)
+                fetch(`${url}api/token/isVriefy/${InfoToken}/`)
                     .then(res => res.text())
                     .then(go => {
                         if (!isLoginUser || go !== 'Access Token') {
