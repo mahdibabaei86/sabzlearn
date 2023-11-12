@@ -6,6 +6,7 @@ let pass_input = document.querySelector('.pass_input');
 let name_input = document.querySelector('.name_input');
 let family_input = document.querySelector('.family_input');
 let email_input = document.querySelector('.email_input');
+let InfoToken = localStorage.getItem('token');
 let bio_input = document.querySelector('.bio_input');
 let btn_update = document.querySelector('.btn_update_user');
 let userInfo = JSON.parse(localStorage.getItem('user'));
@@ -30,7 +31,7 @@ toastr.options = {
 
 function isLogin(pathRedirect) {
     if (userInfo) {
-        fetch(`${url}api/users/all/`)
+        fetch(`${url}api/public/users/all/`)
             .then(res => res.json())
             .then(go => {
                 let isLoginUser = go.some(user => {
@@ -64,7 +65,7 @@ exit_panel.addEventListener('click', () => {
 });
 
 function GetProfileUser(email) {
-    fetch(`${url}api/users/profile/${email}/`)
+    fetch(`${url}api/public/users/profile/${email}/`)
         .then(res => res.text())
         .then(res => {
             profile_user.src = res
@@ -74,7 +75,7 @@ function GetProfileUser(email) {
 window.addEventListener('DOMContentLoaded', () => {
     isLogin('../../auth/index.html');
     GetProfileUser(userInfo.email);
-    fetch(`${url}api/users/all/`)
+    fetch(`${url}api/public/users/all/`)
         .then(res => res.json())
         .then(go => {
             if (new URLSearchParams(location.search).get('username')) {
@@ -111,17 +112,18 @@ btn_update.addEventListener('click', (e) => {
         password: pass_input.value == '' ? 'empty' : pass_input.value,
         bio: bio_input.value,
     }
-    fetch(`${url}api/users/edit/`, {
+    fetch(`${url}api/user/users/edit/`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
+            "authorization": InfoToken
         },
         body: JSON.stringify(info)
     }).then(res => res.text())
         .then(go => {
             if (go == 'Success Edit Info') {
                 toastr.success('اطلاعات کاربری آپدیت شد');
-                fetch(`${url}api/users/all/`)
+                fetch(`${url}api/public/users/all/`)
                     .then(res => res.json())
                     .then(go => {
                         let userFund = go.find(user => {

@@ -2,11 +2,12 @@ let title_body_left_panel = document.querySelector('.title_body_left_panel');
 let profile_user = document.querySelector('#profile_user');
 let exit_panel = document.querySelector('#exit_panel');
 let all_tickets = document.querySelector('#all_tickets');
+let InfoToken = localStorage.getItem('token');
 let count_wallet = document.querySelector('#count_walletSS');
 let userInfo = JSON.parse(localStorage.getItem('user'));
 let url = 'http://localhost:3000/';
 function GetProfileUser(email) {
-    fetch(`http://localhost:3000/api/users/profile/${email}/`)
+    fetch(`http://localhost:3000/api/public/users/profile/${email}/`)
         .then(res => res.text())
         .then(res => {
             profile_user.src = res
@@ -15,7 +16,7 @@ function GetProfileUser(email) {
 
 function isLogin(pathRedirect) {
     if (userInfo) {
-        fetch(`${url}api/users/all/`)
+        fetch(`${url}api/public/users/all/`)
             .then(res => res.json())
             .then(go => {
                 let isLoginUser = go.some(user => {
@@ -58,7 +59,13 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function appendTicketsView(info) {
-    fetch(`${url}api/ticket/view/${info.username}/${info.password}/`)
+    fetch(`${url}api/user/ticket/view/${info.username}/${info.password}/`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "authorization": InfoToken
+        }
+    })
         .then(res => res.json())
         .then(go => {
             let Open_tickets = go.filter(ticket => {
@@ -74,7 +81,7 @@ function appendTicketsView(info) {
 
 // import data user to panel
 function importDataUser() {
-    fetch(`${url}api/users/all/`)
+    fetch(`${url}api/public/users/all/`)
         .then(res => res.json())
         .then(go => {
             let findUser = go.find(user => {

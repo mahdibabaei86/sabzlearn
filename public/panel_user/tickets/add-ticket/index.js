@@ -4,6 +4,7 @@ let profile_user = document.querySelector('#profile_user');
 let userInfo = JSON.parse(localStorage.getItem('user'));
 let list_departeman = document.querySelector('#list_type_user');
 let title_ticket = document.querySelector('.name_input');
+let InfoToken = localStorage.getItem('token');
 let descriptionTicket = document.querySelector('.bio_user');
 let btnSend = document.querySelector('.btn_create_user');
 let url = 'http://localhost:3000/';
@@ -27,7 +28,7 @@ toastr.options = {
 
 function isLogin(pathRedirect) {
     if (userInfo) {
-        fetch(`${url}api/users/all/`)
+        fetch(`${url}api/public/users/all/`)
             .then(res => res.json())
             .then(go => {
                 let isLoginUser = go.some(user => {
@@ -61,7 +62,7 @@ exit_panel.addEventListener('click', () => {
 });
 
 function GetProfileUser(email) {
-    fetch(`${url}api/users/profile/${email}/`)
+    fetch(`${url}api/public/users/profile/${email}/`)
         .then(res => res.text())
         .then(res => {
             profile_user.src = res
@@ -91,10 +92,11 @@ btnSend.addEventListener('click', (e) => {
             status: 'open',
         }
 
-        fetch(`${url}api/ticket/send/`, {
+        fetch(`${url}api/user/ticket/send/`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
+                "authorization": InfoToken
             },
             body: JSON.stringify(newTicket)
         }).then(res => res.text())

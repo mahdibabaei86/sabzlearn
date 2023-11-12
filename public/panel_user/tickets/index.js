@@ -5,6 +5,7 @@ let newTicket = document.querySelector('#newTicket');
 let list_all_tickets = document.querySelector('.list_all_tickets');
 let all_tickets = document.querySelector('#all_tickets');
 let open_tickets = document.querySelector('#open_tickets');
+let InfoToken = localStorage.getItem('token');
 let close_tickets = document.querySelector('#close_tickets');
 let userInfo = JSON.parse(localStorage.getItem('user'));
 let url = 'http://localhost:3000/';
@@ -27,7 +28,7 @@ exit_panel.addEventListener('click', () => {
 });
 
 function GetProfileUser(email) {
-    fetch(`${url}api/users/profile/${email}/`)
+    fetch(`${url}api/public/users/profile/${email}/`)
         .then(res => res.text())
         .then(res => {
             profile_user.src = res
@@ -36,7 +37,7 @@ function GetProfileUser(email) {
 
 function isLogin(pathRedirect) {
     if (userInfo) {
-        fetch(`${url}api/users/all/`)
+        fetch(`${url}api/public/users/all/`)
             .then(res => res.json())
             .then(go => {
                 let isLoginUser = go.some(user => {
@@ -75,7 +76,13 @@ function setInfoStatusTicket(info) {
 }
 
 function appendTicketsView(info) {
-    fetch(`${url}api/ticket/view/${info.username}/${info.password}/`)
+    fetch(`${url}api/user/ticket/view/${info.username}/${info.password}/`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "authorization": InfoToken
+        }
+    })
         .then(res => res.json())
         .then(go => {
             counterInfoHeaderfeacher(go);

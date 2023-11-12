@@ -5,6 +5,7 @@ let profile_user = document.querySelector('#profile_user');
 let msBody = document.querySelector('.ms-body');
 let userInfo = JSON.parse(localStorage.getItem('user'));
 let title_page = document.querySelector('.title_page');
+let InfoToken = localStorage.getItem('token');
 let inputMessage = document.querySelector('.box-bottom_replay_message input');
 let idTicket = new URLSearchParams(location.search).get('id');
 document.title = `تیکت #${idTicket} - پنل کاربری - سبز لرن`
@@ -12,7 +13,7 @@ let url = 'http://localhost:3000/';
 
 function isLogin(pathRedirect) {
     if (userInfo) {
-        fetch(`${url}api/users/all/`)
+        fetch(`${url}api/public/users/all/`)
             .then(res => res.json())
             .then(go => {
                 let isLoginUser = go.some(user => {
@@ -28,7 +29,13 @@ function isLogin(pathRedirect) {
 }
 
 function isStatusTicket() {
-    fetch(`${url}api/ticket/view/${idTicket}/${userInfo.username}/${userInfo.password}/`)
+    fetch(`${url}api/user/ticket/view/${idTicket}/${userInfo.username}/${userInfo.password}/`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "authorization": InfoToken
+        }
+    })
         .then(res => res.json())
         .then(go => {
             if (go[0].status == 'close') {
@@ -51,10 +58,11 @@ btn_send_txt.addEventListener('click', () => {
             userInfo: userInfo,
             description: inputMessage.value,
         }
-        fetch(`${url}api/ticket/send-response/`, {
+        fetch(`${url}api/user/ticket/send-response/`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
+                "authorization": InfoToken
             },
             body: JSON.stringify(newTicket)
         }).then(res => res.text())
@@ -85,7 +93,7 @@ exit_panel.addEventListener('click', () => {
 });
 
 function GetProfileUser(email) {
-    fetch(`${url}api/users/profile/${email}/`)
+    fetch(`${url}api/public/users/profile/${email}/`)
         .then(res => res.text())
         .then(res => {
             profile_user.src = res
@@ -99,13 +107,18 @@ window.addEventListener('DOMContentLoaded', () => {
     isLogin('../../../auth/index.html');
     isStatusTicket();
     msBody.innerHTML = ''
-    fetch(`${url}api/ticket/view/${idTicket}/${userInfo.username}/${userInfo.password}/`)
+    fetch(`${url}api/user/ticket/view/${idTicket}/${userInfo.username}/${userInfo.password}/`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "authorization": InfoToken
+        }
+    })
         .then(res => res.json())
         .then(go => {
             title_page.innerHTML = `${go[0].title}  ${go[0].id}#`
             let chats = JSON.parse(go[0].chats);
             chats.forEach(el => {
-                console.log(el);
                 if (el.infoUser.username == userInfo.username) {
                     msBody.insertAdjacentHTML('beforeend', `<div class="message-feed media">
                         <div class="media-body">

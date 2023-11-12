@@ -3,11 +3,12 @@ let btn_new_course = document.querySelector('.btn_new_course');
 let container_courses = document.querySelector('.container_box_my_courses');
 let profile_user = document.querySelector('#profile_user');
 let exit_panel = document.querySelector('#exit_panel');
+let InfoToken = localStorage.getItem('token');
 let registred_course = document.querySelector('#registred_course');
 let userInfo = JSON.parse(localStorage.getItem('user'));
 let url = 'http://localhost:3000/';
 function GetProfileUser(email) {
-    fetch(`${url}api/users/profile/${email}/`)
+    fetch(`${url}api/public/users/profile/${email}/`)
         .then(res => res.text())
         .then(res => {
             profile_user.src = res
@@ -16,7 +17,7 @@ function GetProfileUser(email) {
 
 function isLogin(pathRedirect) {
     if (userInfo) {
-        fetch(`${url}api/users/all/`)
+        fetch(`${url}api/public/users/all/`)
             .then(res => res.json())
             .then(go => {
                 let isLoginUser = go.some(user => {
@@ -52,7 +53,7 @@ exit_panel.addEventListener('click', () => {
 window.addEventListener('DOMContentLoaded', () => {
     isLogin('../../auth/index.html');
     container_courses.innerHTML = ''
-    fetch(`${url}api/products/my-course/${userInfo.username}`)
+    fetch(`${url}api/public/products/my-course/${userInfo.username}/`)
         .then(res => res.json())
         .then(res => {
             if (!res.length) {
