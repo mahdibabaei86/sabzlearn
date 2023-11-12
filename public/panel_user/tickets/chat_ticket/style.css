@@ -541,6 +541,16 @@
     width: 85%;
 }
 
+.img_sending_message {
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+}
+
+#file_uploading {
+    display: none;
+}
+
 .alert-danger span {
     font-family: dana;
     color: #fff;
