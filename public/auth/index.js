@@ -75,7 +75,7 @@ btn_singin.addEventListener('click', (e) => {
             username: Signin_username.value,
             email: signin_email.value
         }
-        fetch(`${url}api/users/yuniq-info/`, {
+        fetch(`${url}api/public/users/yuniq-info/`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -97,7 +97,7 @@ btn_singin.addEventListener('click', (e) => {
                         bio: 'empty'
                     }
 
-                    fetch(`${url}api/users/signin/`, {
+                    fetch(`${url}api/public/users/signin/`, {
                         method: 'POST',
                         headers: {
                             "Content-Type": "application/json",
