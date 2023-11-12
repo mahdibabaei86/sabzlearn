@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `alarm-clock`
 --
 
-CREATE TABLE `alarm-clock` (
+CREATE TABLE `notes` (
   `id` text NOT NULL,
   `title` text NOT NULL,
   `clock` text NOT NULL,
