@@ -2,7 +2,7 @@ let title_body_left_panel = document.querySelector('.title_body_left_panel');
 let profile_user = document.querySelector('#profile_user');
 let exit_panel = document.querySelector('#exit_panel');
 let all_tickets = document.querySelector('#all_tickets');
-let InfoToken = localStorage.getItem('token');
+let InfoToken, token = localStorage.getItem('token');
 let count_wallet = document.querySelector('#count_walletSS');
 let userInfo = JSON.parse(localStorage.getItem('user'));
 let url = 'http://localhost:3000/';
@@ -22,9 +22,15 @@ function isLogin(pathRedirect) {
                 let isLoginUser = go.some(user => {
                     return user.username == userInfo.username && user.password == userInfo.password && userInfo.type == user.type
                 });
-                if (!isLoginUser) {
-                    location.href = pathRedirect;
-                }
+                fetch(`${url}api/token/isVriefy/${token}/`)
+                    .then(res => res.text())
+                    .then(go => {
+                        if (!isLoginUser || go !== 'Access Token') {
+                            localStorage.removeItem('user');
+                            localStorage.removeItem('token');
+                            location.reload();
+                        }
+                    })
             })
     } else {
         location.href = pathRedirect;

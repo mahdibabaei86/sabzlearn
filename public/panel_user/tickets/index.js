@@ -5,7 +5,7 @@ let newTicket = document.querySelector('#newTicket');
 let list_all_tickets = document.querySelector('.list_all_tickets');
 let all_tickets = document.querySelector('#all_tickets');
 let open_tickets = document.querySelector('#open_tickets');
-let InfoToken = localStorage.getItem('token');
+let InfoToken, token = localStorage.getItem('token');
 let close_tickets = document.querySelector('#close_tickets');
 let userInfo = JSON.parse(localStorage.getItem('user'));
 let url = 'http://localhost:3000/';
@@ -43,9 +43,15 @@ function isLogin(pathRedirect) {
                 let isLoginUser = go.some(user => {
                     return user.username == userInfo.username && user.password == userInfo.password && userInfo.type == user.type
                 });
-                if (!isLoginUser) {
-                    location.href = pathRedirect;
-                }
+                fetch(`${url}api/token/isVriefy/${token}/`)
+                    .then(res => res.text())
+                    .then(go => {
+                        if (!isLoginUser || go !== 'Access Token') {
+                            localStorage.removeItem('user');
+                            localStorage.removeItem('token');
+                            location.reload();
+                        }
+                    })
             })
     } else {
         location.href = pathRedirect;

@@ -6,7 +6,7 @@ let pass_input = document.querySelector('.pass_input');
 let name_input = document.querySelector('.name_input');
 let family_input = document.querySelector('.family_input');
 let email_input = document.querySelector('.email_input');
-let InfoToken = localStorage.getItem('token');
+let InfoToken, token = localStorage.getItem('token');
 let bio_input = document.querySelector('.bio_input');
 let btn_update = document.querySelector('.btn_update_user');
 let userInfo = JSON.parse(localStorage.getItem('user'));
@@ -37,9 +37,15 @@ function isLogin(pathRedirect) {
                 let isLoginUser = go.some(user => {
                     return user.username == userInfo.username && user.password == userInfo.password && userInfo.type == user.type
                 });
-                if (!isLoginUser) {
-                    location.href = pathRedirect;
-                }
+                fetch(`${url}api/token/isVriefy/${token}/`)
+                    .then(res => res.text())
+                    .then(go => {
+                        if (!isLoginUser || go !== 'Access Token') {
+                            localStorage.removeItem('user');
+                            localStorage.removeItem('token');
+                            location.reload();
+                        }
+                    })
             })
     } else {
         location.href = pathRedirect;
