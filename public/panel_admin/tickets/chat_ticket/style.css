@@ -451,10 +451,20 @@
     padding: 20px;
 }
 
+.img_sending_message {
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+}
+
+#file_uploading {
+    display: none;
+}
+
 .box-bottom_replay_message input {
     padding: 10px;
     font-family: 'dana';
-    width: 530px;
+    width: 635px;
     outline: none;
     font-size: 15px;
     border: none;

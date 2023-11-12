@@ -1,6 +1,7 @@
 let express = require('express');
 let ticketUserRouter = express.Router();
 let mysql = require('mysql');
+let path = require('path');
 
 let database = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -78,6 +79,19 @@ ticketUserRouter.post('/user/ticket/send-response/', (req, res) => {
             })
         }
     })
+});
+
+ticketUserRouter.post('/user/ticket/upload/file/', (req, res) => {
+    let file = req.files.file;
+    let Folder_dir_uploads = '../uploads/chats/'
+    let pathDir = path.join(path.join(__dirname, Folder_dir_uploads), file.name);
+    file.mv(pathDir, err => {
+        if (err) {
+            res.sendStatus(400);
+        } else {
+            res.send(pathDir);
+        }
+    });
 });
 
 module.exports = ticketUserRouter

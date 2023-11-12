@@ -6,6 +6,7 @@ let msBody = document.querySelector('.ms-body');
 let userInfo = JSON.parse(localStorage.getItem('user'));
 let title_page = document.querySelector('.title_page');
 let InfoToken = localStorage.getItem('token');
+let btn_send_file = document.querySelector('.btn_send_file');
 let inputMessage = document.querySelector('.box-bottom_replay_message input');
 let idTicket = new URLSearchParams(location.search).get('id');
 document.title = `تیکت #${idTicket} - پنل کاربری - سبز لرن`
@@ -126,7 +127,19 @@ window.addEventListener('DOMContentLoaded', () => {
             let chats = JSON.parse(go[0].chats);
             chats.forEach(el => {
                 if (el.infoUser.username == userInfo.username) {
-                    msBody.insertAdjacentHTML('beforeend', `<div class="message-feed media">
+                    const regex = /\.(jpeg|jpg|gif|png)$/i;
+                    if (regex.test(el.description)) {
+                        msBody.insertAdjacentHTML('beforeend', `<div class="message-feed media">
+                        <div class="media-body">
+                        <div class="mf-content">
+                        <h3>${el.infoUser.username}</h3>
+                        <img src="${el.description}" class="img_sending_message"/>
+                            </div>
+                            <p class="mf-date"><i class="fa fa-clock-o"></i>${el.hour} ${el.date}</p>
+                        </div>
+                    </div>`);
+                    } else {
+                        msBody.insertAdjacentHTML('beforeend', `<div class="message-feed media">
                         <div class="media-body">
                         <div class="mf-content">
                         <h3>${el.infoUser.username}</h3>
@@ -135,19 +148,56 @@ window.addEventListener('DOMContentLoaded', () => {
                             <p class="mf-date"><i class="fa fa-clock-o"></i>${el.hour} ${el.date}</p>
                         </div>
                     </div>`);
+                    }
                 } else {
-                    msBody.insertAdjacentHTML('beforeend', `<div class="message-feed right">
-                        <div class="media-body">
-                        <div class="mf-content">
-                        <h3>${el.infoUser.username}</h3>
-                            ${el.description}
+                    const regex = /\.(jpeg|jpg|gif|png)$/i;
+                    if (regex.test(el.description)) {
+                        msBody.insertAdjacentHTML('beforeend', `<div class="message-feed right">
+                            <div class="media-body">
+                            <div class="mf-content">
+                            <h3>${el.infoUser.username}</h3>
+                            <img src="${el.description}" class="img_sending_message"/>
+                                </div>
+                                <p class="mf-date"><i class="fa fa-clock-o"></i>${el.hour} ${el.date}</p>
                             </div>
-                            <p class="mf-date"><i class="fa fa-clock-o"></i>${el.hour} ${el.date}</p>
-                        </div>
-                    </div>`);
+                        </div>`);
+                    } else {
+                        msBody.insertAdjacentHTML('beforeend', `<div class="message-feed right">
+                            <div class="media-body">
+                            <div class="mf-content">
+                            <h3>${el.infoUser.username}</h3>
+                                ${el.description}
+                                </div>
+                                <p class="mf-date"><i class="fa fa-clock-o"></i>${el.hour} ${el.date}</p>
+                            </div>
+                        </div>`);
+                    }
                 }
             });
         })
     GetProfileUser(userInfo.email);
     title_body_left_panel.innerHTML = `${userInfo.name == 'empty' ? 'مهمان' : userInfo.name} عزیز؛ خوش اومدی 🙌`
 });
+
+btn_send_file.addEventListener('click', () => {
+    document.querySelector('#file_uploading').click();
+});
+
+document.querySelector('#file_uploading').addEventListener('change', () => {
+    let formDataFile = new FormData();
+    formDataFile.append('file', document.querySelector('#file_uploading').files[0]);
+    fetch(`${url}api/user/ticket/upload/file/`, {
+        method: 'POST',
+        headers: {
+            "authorization": InfoToken
+        },
+        body: formDataFile
+    }).then(res => res.text())
+        .then(go => {
+            let urlFile = go.replace(/C:\\xampp\\htdocs\\/, "http://localhost/");
+            const urlFile3 = urlFile.replace(/\\/g, '/');
+            inputMessage.value = urlFile3;
+            console.log(urlFile3);
+            inputMessage.style.display = 'none';
+        })
+})
