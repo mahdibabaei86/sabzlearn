@@ -65,6 +65,7 @@ To set up the project locally, follow the steps below:
    mkdir covers
    mkdir IntroductionVideoCourse
    mkdir mainfile
+   mkdir chats
    ```
 
 7. Start the development server:
