@@ -181,7 +181,19 @@ input_search_media.addEventListener('click', () => {
 });
 
 function openModalBox(e) {
-    coverModalFile.src = `../../../backend/uploads/${SelectFolder.value}/${e.dataset.name}`
+    if (SelectFolder.value == 'IntroductionVideoCourse') {
+        coverModalFile.remove();
+        // document.querySelector('.modal_info_files').insertAdjacentHTML('afterend', `
+        // <video src="../../../backend/uploads/${SelectFolder.value}/${e.dataset.name}" style="width: 251px;
+        // border-radius: 9px;"></video>
+        // `);
+        document.querySelector('.modal_info_files video').style.display = 'block';
+        document.querySelector('.modal_info_files video').src = `../../../backend/uploads/${SelectFolder.value}/${e.dataset.name}`;
+    } else if (SelectFolder.value == 'mainfile') {
+        coverModalFile.src = `../../../Images/rar_logo.png`;
+        coverModalFile.style.width = '155px';
+    }
+    // coverModalFile.src = `../../../backend/uploads/${SelectFolder.value}/${e.dataset.name}`
     titleModalFile.innerHTML = e.dataset.name
     document.querySelector('.modal_info_files').style.transform = `translateY(0px)`;
     document.querySelector('body').classList.add('dark_model');
