@@ -1,0 +1,57 @@
+.container-medias h1 {
+    font-family: dana;
+    font-size: 20px;
+    margin: 19px 50px 30px 0px;
+}
+
+.container_medias_gallery {
+    display: flex;
+    justify-content:right;
+    margin: 30px 25px 30px 25px;
+}
+
+.meida_box {
+    width: 140px;
+    position: relative;
+    height: 100px;
+    margin: 19px;
+}
+
+.meida_box_zip {
+    width: 140px;
+    position: relative;
+    height: 100px;
+    margin: 19px;
+}
+
+.meida_box_zip img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.type_media {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.type_media i {
+    color: #fff;
+}
+
+.meida_box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 9px;
+    box-shadow: 1px 1px 7px 1px #8b8b8b;
+    cursor: pointer;
+}
+
+.meida_box video {
+    width: 100%;
+    height: 100%;
+    border-radius: 9px;
+    box-shadow: 1px 1px 7px 1px #8b8b8b;
+    cursor: pointer;
+}
