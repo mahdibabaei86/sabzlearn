@@ -5,6 +5,8 @@ let exit_panel = document.querySelector('#exit_panel');
 let title_body_left_panel = document.querySelector('.title_body_left_panel');
 let profile_user = document.querySelector('#profile_user');
 let InfoToken = localStorage.getItem('token');
+let titleModalFile = document.querySelector('.modal_info_files h3');
+let coverModalFile = document.querySelector('.modal_info_files img');
 let token = localStorage.getItem('token');
 let title_input_clock = document.querySelector('.title_input_clock');
 let userInfo = JSON.parse(localStorage.getItem('user'));
@@ -115,21 +117,21 @@ SelectFolder.addEventListener('change', (e) => {
                 container_medias_gallery.innerHTML = '';
                 go.forEach(file => {
                     if (e.target.value == 'covers') {
-                        container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box">
+                        container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box" data-name="${file}" onclick="openModalBox(this)">
                         <div class="type_media" title="image">
                             <i class="bx bxs-image-alt"></i>
                         </div>
                         <img src="../../../backend/uploads/${e.target.value}/${file}">
                     </div>`);
                     } else if (e.target.value == 'IntroductionVideoCourse') {
-                        container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box">
+                        container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box" data-name="${file}" onclick="openModalBox(this)">
                         <div class="type_media" title="mp4/video">
                             <i class="bx bxs-videos"></i>
                         </div>
                         <video src="../../../backend/uploads/${e.target.value}/${file}" muted="" autoplay=""></video>
                     </div>`);
                     } else {
-                        container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box_zip">
+                        container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box_zip" data-name="${file}" onclick="openModalBox(this)">
                         <img src="../../../Images/rar_logo.png">
                     </div>`);
                     }
@@ -150,21 +152,21 @@ input_search_media.addEventListener('keyup', (e) => {
             container_medias_gallery.innerHTML = '';
             go.forEach(file => {
                 if (SelectFolder.value == 'covers') {
-                    container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box">
+                    container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box" data-name="${file}" onclick="openModalBox(this)">
                     <div class="type_media" title="image">
                         <i class="bx bxs-image-alt"></i>
                     </div>
                     <img src="../../../backend/uploads/${SelectFolder.value}/${file}">
                 </div>`);
                 } else if (SelectFolder.value == 'IntroductionVideoCourse') {
-                    container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box">
+                    container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box" data-name="${file}" onclick="openModalBox(this)">
                     <div class="type_media" title="mp4/video">
                         <i class="bx bxs-videos"></i>
                     </div>
                     <video src="../../../backend/uploads/${SelectFolder.value}/${file}" muted="" autoplay=""></video>
                 </div>`);
                 } else {
-                    container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box_zip">
+                    container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box_zip" data-name="${file}" onclick="openModalBox(this)">
                     <img src="../../../Images/rar_logo.png">
                 </div>`);
                 }
@@ -176,4 +178,34 @@ input_search_media.addEventListener('click', () => {
     if (SelectFolder.value == 'selected') {
         alert('ابتدا دسته بندی را مشخص کن.');
     }
+});
+
+function openModalBox(e) {
+    coverModalFile.src = `../../../backend/uploads/${SelectFolder.value}/${e.dataset.name}`
+    titleModalFile.innerHTML = e.dataset.name
+    document.querySelector('.modal_info_files').style.transform = `translateY(0px)`;
+    document.querySelector('body').classList.add('dark_model');
+}
+
+document.querySelector('#close_modal_file').addEventListener('click', () => {
+    document.querySelector('.modal_info_files').style.transform = `translateY(-575px)`;
+    document.querySelector('body').classList.remove('dark_model');
+});
+
+document.querySelector('#remove_modal_file').addEventListener('click', () => {
+    fetch(`${url}api/admin/media/remove/${e.dataset.name}`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            "authorization": token
+        },
+    }).then(res => res.text())
+        .then(go => {
+            if (go == 'successfully remove file') {
+                toastr.error('فایل با موفقیت حذف شد');
+                setTimeout(function () {
+                    location.reload();
+                }, 2500);
+            }
+        })
 });
