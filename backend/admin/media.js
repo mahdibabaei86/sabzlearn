@@ -26,4 +26,14 @@ mediaRouterAdmin.get(`/admin/media/search/:folder/:txt/`, (req, res) => {
     });
 });
 
+mediaRouterAdmin.get(`/admin/media/remove/:folders/:name/`, (req, res) => {
+    fs.unlink(`./uploads/${req.params.folders}/${req.params.name}/`, (err) => {
+        if (err) {
+            console.log('Error Remvoe File', err);
+        } else {
+            res.send('successfully remove file');
+        }
+    });
+});
+
 module.exports = mediaRouterAdmin

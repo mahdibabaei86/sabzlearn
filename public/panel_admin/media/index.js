@@ -193,7 +193,7 @@ document.querySelector('#close_modal_file').addEventListener('click', () => {
 });
 
 document.querySelector('#remove_modal_file').addEventListener('click', () => {
-    fetch(`${url}api/admin/media/remove/${e.dataset.name}`, {
+    fetch(`${url}api/admin/media/remove/${SelectFolder.value}/${titleModalFile.innerHTML}`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
