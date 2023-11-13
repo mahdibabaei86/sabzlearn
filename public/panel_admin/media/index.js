@@ -1,4 +1,5 @@
 let SelectFolder = document.querySelector('#SelectFolder');
+let input_search_media = document.querySelector('.input_search_media');
 let container_medias_gallery = document.querySelector('.container_medias_gallery');
 let token = localStorage.getItem('token');
 let url = 'http://localhost:3000/';
@@ -22,8 +23,43 @@ SelectFolder.addEventListener('change', (e) => {
         <i class="bx bxs-info-circle"></i>
         </div>
                 `);
+    } else {
+        fetch(`${url}api/admin/media/${e.target.value}/`, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                "authorization": token
+            },
+        }).then(res => res.json())
+            .then(go => {
+                container_medias_gallery.innerHTML = '';
+                go.forEach(file => {
+                    if (e.target.value == 'covers') {
+                        container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box">
+                        <div class="type_media" title="image">
+                            <i class="bx bxs-image-alt"></i>
+                        </div>
+                        <img src="../../../backend/uploads/${e.target.value}/${file}">
+                    </div>`);
+                    } else if (e.target.value == 'IntroductionVideoCourse') {
+                        container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box">
+                        <div class="type_media" title="mp4/video">
+                            <i class="bx bxs-videos"></i>
+                        </div>
+                        <video src="../../../backend/uploads/${e.target.value}/${file}" muted="" autoplay=""></video>
+                    </div>`);
+                    } else {
+                        container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box_zip">
+                        <img src="../../../Images/rar_logo.png">
+                    </div>`);
+                    }
+                });
+            })
     }
-    fetch(`${url}api/admin/media/${e.target.value}/`, {
+});
+
+input_search_media.addEventListener('keyup', (e) => {
+    fetch(`${url}api/admin/media/search/${SelectFolder.value}/${e.target.value}/`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
@@ -33,19 +69,19 @@ SelectFolder.addEventListener('change', (e) => {
         .then(go => {
             container_medias_gallery.innerHTML = '';
             go.forEach(file => {
-                if (e.target.value == 'covers') {
+                if (SelectFolder.value == 'covers') {
                     container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box">
                     <div class="type_media" title="image">
                         <i class="bx bxs-image-alt"></i>
                     </div>
-                    <img src="../../../backend/uploads/${e.target.value}/${file}">
+                    <img src="../../../backend/uploads/${SelectFolder.value}/${file}">
                 </div>`);
-                } else if (e.target.value == 'IntroductionVideoCourse') {
+                } else if (SelectFolder.value == 'IntroductionVideoCourse') {
                     container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box">
                     <div class="type_media" title="mp4/video">
                         <i class="bx bxs-videos"></i>
                     </div>
-                    <video src="../../../backend/uploads/${e.target.value}/${file}" muted="" autoplay=""></video>
+                    <video src="../../../backend/uploads/${SelectFolder.value}/${file}" muted="" autoplay=""></video>
                 </div>`);
                 } else {
                     container_medias_gallery.insertAdjacentHTML('beforeend', `<div class="meida_box_zip">
@@ -54,4 +90,10 @@ SelectFolder.addEventListener('change', (e) => {
                 }
             });
         })
+});
+
+input_search_media.addEventListener('click', () => {
+    if (SelectFolder.value == 'selected') {
+        alert('ابتدا دسته بندی را مشخص کن.');
+    }
 });
