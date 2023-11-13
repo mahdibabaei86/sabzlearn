@@ -26,6 +26,7 @@ const blogRouterPublic = require('./public/blog');
 const blogRouterAdmin = require('./admin/blog');
 const blogRouterUser = require('./user/blog');
 const noteRouterAdmin = require('./admin/notes.js');
+const mediaRouterAdmin = require('./admin/media.js');
 app.use(cors({
     origin: 'http://localhost',
     credentials: true
@@ -74,6 +75,7 @@ app.use('/api', authAdmin, notificationAdminRouter);
 app.use('/api', authAdmin, ticketsRouterAdmins);
 app.use('/api', authAdmin, blogRouterAdmin);
 app.use('/api', authAdmin, noteRouterAdmin);
+app.use('/api', authAdmin, mediaRouterAdmin);
 
 
 app.listen(3000, () => {
