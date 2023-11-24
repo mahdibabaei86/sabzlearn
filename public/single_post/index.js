@@ -37,6 +37,7 @@ let description_article = document.querySelector('.description_article');
 let cover_article = document.querySelector('.cover_article');
 let title_article = document.querySelector('.title_article');
 let athor_user = document.querySelector('.athor_user');
+let InfoToken = localStorage.getItem('token');
 let clender_article = document.querySelector('.clender_article');
 let logo_header = document.querySelector('#logo_header');
 let statusCommnet = 'new';
@@ -75,7 +76,7 @@ profile_header_user.addEventListener('click', () => {
 });
 
 function GetProfileUser(email) {
-    fetch(`${url}api/users/profile/${email}/`)
+    fetch(`${url}api/public/users/profile/${email}/`)
         .then(res => res.text())
         .then(res => {
             profile_header_user.src = res
@@ -162,10 +163,11 @@ send_comment_btn.addEventListener('click', () => {
                 replays: [],
             }
             description_box_commnet.value = ''
-            fetch(`${url}api/blog/new-comment/`, {
+            fetch(`${url}api/user/blog/new-comment/`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
+                    "authorization": InfoToken
                 },
                 body: JSON.stringify(newComment)
             })
@@ -191,7 +193,7 @@ send_comment_btn.addEventListener('click', () => {
 
 
 function appedDomComment() {
-    fetch(`${url}api/blog/all-comments/${urlSeqarchParams}/`)
+    fetch(`${url}api/public/blog/all-comments/${urlSeqarchParams}/`)
         .then(res => res.json())
         .then(go => {
             let commnets = JSON.parse(go[0]["Comments"]);
@@ -284,10 +286,11 @@ function sendreplayComment() {
         description: description_box_commnet.value.replace(/\n/g, ' ')
     }
 
-    fetch(`${url}api/blog/replay-comment/`, {
+    fetch(`${url}api/user/blog/replay-comment/`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
+            "authorization": InfoToken
         },
         body: JSON.stringify(commentReplayFile)
     }).then(res => res.text())
@@ -301,7 +304,7 @@ function sendreplayComment() {
 }
 
 function appendDomReplay() {
-    fetch(`${url}api/blog/all-comments/${urlSeqarchParams}/`)
+    fetch(`${url}api/public/blog/all-comments/${urlSeqarchParams}/`)
         .then(res => res.json())
         .then(go => {
             let commnets = JSON.parse(go[0]["Comments"]);
@@ -359,7 +362,7 @@ document.querySelector('.bx-x').addEventListener('click', () => {
 input_search_nav.addEventListener('keyup', (e) => {
     if (e.key == 'Enter') {
         if (e.target.value) {
-            fetch(`${url}api/products/search/${e.target.value}/`)
+            fetch(`${url}api/public/products/search/${e.target.value}/`)
                 .then(res => res.json())
                 .then(go => {
                     document.querySelector('.container_result_search').innerHTML = '';
@@ -400,7 +403,7 @@ function setAnimation() {
 }
 
 function appendDomArticle() {
-    fetch(`${url}api/blog/view-article/${urlSeqarchParams}/`)
+    fetch(`${url}api/public/blog/view-article/${urlSeqarchParams}/`)
         .then(res => res.json())
         .then(go => {
             let main = go[0];
@@ -424,7 +427,7 @@ function appendDomArticle() {
                                 </svg><span>${main.clendare}</span>`;
         })
     // new Article
-    fetch(`${url}api/blog/all/`)
+    fetch(`${url}api/public/blog/all/`)
         .then(res => res.json())
         .then(go => {
             newArticleList(go);
