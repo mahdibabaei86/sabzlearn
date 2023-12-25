@@ -1443,6 +1443,14 @@ h1 span {
     transition: all 0.5s ease-in-out;
 }
 
+.frontNav > li {
+    line-height: 21px !important;
+}
+
+.frontNav {
+    width: 250px !important;
+}
+
 .btn_toggle_hamberger {
     background-color: #00d084;
     border-radius: 5px;

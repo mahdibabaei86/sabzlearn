@@ -95,6 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
     } else {
         profile_header_user.parentElement.style.display = 'none';
     }
+    renderListNav();
     appendNotification();
     appendPost();
     container_boxs_last_course.innerHTML = ''
@@ -329,6 +330,22 @@ function appendNotification() {
             } else {
                 document.querySelector('.title_main_one').style.marginTop = '-60px';
             }
+        })
+}
+
+function renderListNav() {
+    let frontNav = document.querySelector('.frontNav');
+    fetch(`http://localhost:3000/api/public/products/all/`)
+        .then(res => res.json())
+        .then(go => {
+            let fetchFrontEnd = go.filter(course => {
+                return course.category == "فرانت اند"
+            });
+            fetchFrontEnd.forEach(course => {
+                frontNav.insertAdjacentHTML('beforeend', `
+                <li class="li_menu_mega_main" data-symbol="${course.symbol}" onclick="getviewCourse(this)">${course.name}</li>
+                `);
+            })
         })
 }
 
