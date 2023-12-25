@@ -256,6 +256,15 @@ form .btn input[type="submit"] {
   font-family: dana;
 }
 
+@media screen and (max-width:400px) {
+  .wrapper {
+    margin: 0px 20px !important;
+  }
+  #wave {
+    margin-top: -101px !important;
+  }
+}
+
 @font-face {
   font-family: 'dana';
   src: url('../assets/fonts/dana-medium.woff') format('woff');
