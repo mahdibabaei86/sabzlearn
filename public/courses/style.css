@@ -419,6 +419,16 @@ body {
         flex-direction: column-reverse;
     }
 
+    .title_courses {
+        font-size: 40px !important;
+    }
+
+    .title_courses::before {
+        width: 52px !important;
+        right: 46px !important;
+        top: 59px !important;
+    }
+
     .ordered_sections {
         width: 343px;
         flex-direction: column;
@@ -436,11 +446,7 @@ body {
         text-align: center;
     }
 
-    .title_courses::before {
-        width: 51px;
-        right: 30px;
-        top: 111px;
-    }
+
 
     .container_list_courses {
         width: 337px;
@@ -451,5 +457,14 @@ body {
         justify-content: center;
         display: flex;
         flex-direction: column;
+        order: 0 !important;
+    }
+
+    .container_left_courses {
+        order: -1 !important;
+    }
+
+    .header_courses {
+        padding: 41px 0px !important;
     }
 }
