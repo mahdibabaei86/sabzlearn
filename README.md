@@ -57,7 +57,20 @@ To set up the project locally, follow the steps below:
      ```
 
 5. The output file of the project tables located inside the backend folder. import in your database.
-6. Go to the backend folder and execute the following commands in cmd.
+6. Creating an admin user in the database with the following query:
+   First, go to the database, then go to the users table and inject the following query in the SQL tab.
+
+   ```
+   INSERT INTO `users`(`username`, `password`, `name`, `family`, `bio`, `type`, `courses`, `wallet`, `email`, `status`) VALUES ('username' 
+   ','827ccb0eea8a706c4c34a16891f84e7b','name','family','bio','1','empty','0','email','active')
+   ```
+
+   Change the values of the second section that are specified to valid values.
+   For the password, you must first convert your password to md5 hash with online tools, then put the hashed data into the password section.
+   If this is difficult for you, do not touch the default value of Surd.
+   In fact, the login password is `12345`, which you can use to enter Panel Admin.
+   
+   7. Go to the backend folder and execute the following commands in cmd.
 
    ```
    mkdir uploads
@@ -68,13 +81,13 @@ To set up the project locally, follow the steps below:
    mkdir chats
    ```
 
-7. Start the development server:
+8. Start the development server:
 
    ```
    npm nodemon server
    ```
 
-8. Open your browser and access `http://localhost:3000` to view the website.
+9. Open your browser and access `http://localhost:3000` to view the website.
 
 ## Contributing
 
